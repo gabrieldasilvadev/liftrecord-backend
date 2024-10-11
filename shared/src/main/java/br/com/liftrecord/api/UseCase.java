@@ -1,4 +1,4 @@
-package br.com.liftrecord.application;
+package br.com.liftrecord.api;
 
 import br.com.liftrecord.domain.DomainObject;
 

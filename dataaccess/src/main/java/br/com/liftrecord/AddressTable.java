@@ -1,11 +1,6 @@
 package br.com.liftrecord;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity(name = "address")
 public class AddressTable {
-    @Id
     private String id;
     private String state;
     private String city;

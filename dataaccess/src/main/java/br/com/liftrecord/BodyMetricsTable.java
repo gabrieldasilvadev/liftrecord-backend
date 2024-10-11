@@ -1,11 +1,6 @@
 package br.com.liftrecord;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity(name = "body_metrics")
 public class BodyMetricsTable {
-    @Id
     private String id;
     private Double weight;
     private Double height;

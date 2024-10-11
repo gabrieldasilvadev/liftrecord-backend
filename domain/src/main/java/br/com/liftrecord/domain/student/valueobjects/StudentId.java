@@ -1,4 +1,4 @@
-package br.com.liftrecord.entities.student.valueobjects;
+package br.com.liftrecord.domain.student.valueobjects;
 
 public class StudentId {
     private final String value;

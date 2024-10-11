@@ -1,12 +1,8 @@
 package br.com.liftrecord;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import java.time.ZonedDateTime;
 
-@Entity(name = "idempotency")
 public class IdempotencyTable {
-    @Id
     private String key;
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
