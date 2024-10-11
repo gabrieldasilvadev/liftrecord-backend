@@ -1,4 +1,4 @@
-package br.com.liftrecord;
+package br.com.liftrecord.dataaccess;
 
 public class StudentTable {
     private String id;

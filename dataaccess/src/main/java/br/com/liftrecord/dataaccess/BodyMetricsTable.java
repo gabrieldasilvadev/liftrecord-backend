@@ -1,5 +1,8 @@
-package br.com.liftrecord;
+package br.com.liftrecord.dataaccess;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class BodyMetricsTable {
     private String id;
     private Double weight;

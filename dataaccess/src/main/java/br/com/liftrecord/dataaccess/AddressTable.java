@@ -1,5 +1,8 @@
-package br.com.liftrecord;
+package br.com.liftrecord.dataaccess;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class AddressTable {
     private String id;
     private String state;

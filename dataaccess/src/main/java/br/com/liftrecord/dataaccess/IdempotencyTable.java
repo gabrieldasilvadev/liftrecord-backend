@@ -1,4 +1,4 @@
-package br.com.liftrecord;
+package br.com.liftrecord.dataaccess;
 
 import java.time.ZonedDateTime;
 
