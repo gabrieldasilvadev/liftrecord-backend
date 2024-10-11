@@ -1,0 +1,6 @@
+#Sat Oct 05 01:50:01 BRT 2024
+micronaut:
+  application:
+    name: application
+  server:
+    port: 7000
