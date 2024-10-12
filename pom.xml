@@ -179,8 +179,11 @@
             <version>3.0</version>
             <scope>test</scope>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>26.0.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
