@@ -1,6 +1,51 @@
 openapi: 3.0.0
 info:
-  title: LiftRecord API
-  version: 1.0.0
+  title: LiftRecord
+  version: '1.0'
 servers:
   - url: 'http://localhost:7000'
+paths:
+  /students:
+    parameters: [ ]
+    post:
+      summary: Create new student
+      operationId: post-students
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterStudentResponse'
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterStudentRequest'
+        description: ''
+      tags:
+        - student
+components:
+  schemas:
+    RegisterStudentRequest:
+      title: StudentRequest
+      type: object
+      properties:
+        name:
+          type: string
+        cellphone:
+          type: string
+        email:
+          type: string
+    RegisterStudentResponse:
+      title: RegisterStudentResponse
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        cellphone:
+          type: string
+  responses: { }

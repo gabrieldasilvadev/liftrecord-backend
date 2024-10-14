@@ -1,5 +1,0 @@
-micronaut:
-  application:
-    name: api
-  server:
-    port: 7000
