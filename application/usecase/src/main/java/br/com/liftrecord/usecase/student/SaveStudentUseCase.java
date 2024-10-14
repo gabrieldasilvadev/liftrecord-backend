@@ -1,8 +1,8 @@
-package br.com.liftrecord.application.student;
+package br.com.liftrecord.usecase.student;
 
-import br.com.liftrecord.application.UseCase;
 import br.com.liftrecord.domain.student.Student;
-import br.com.liftrecord.application.student.ports.SaveStudentOutputPort;
+import br.com.liftrecord.usecase.UseCase;
+import br.com.liftrecord.usecase.student.ports.SaveStudentOutputPort;
 import jakarta.inject.Singleton;
 
 @Singleton

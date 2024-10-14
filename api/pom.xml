@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>command</artifactId>
+            <artifactId>application</artifactId>
             <version>0.1</version>
             <scope>compile</scope>
         </dependency>
@@ -66,6 +66,12 @@
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>command</artifactId>
+            <version>0.1</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

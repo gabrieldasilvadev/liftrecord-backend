@@ -12,11 +12,10 @@
         <module>application</module>
         <module>domain</module>
         <module>shared</module>
-        <module>query</module>
-        <module>command</module>
         <module>api</module>
         <module>bean</module>
         <module>app-main</module>
+        <module>application/usecase</module>
     </modules>
 
     <properties>

@@ -1,9 +1,9 @@
 package br.com.liftrecord.command.handlers;
 
-import br.com.liftrecord.application.student.SaveStudentUseCase;
 import br.com.liftrecord.command.commands.RegisterStudentCommand;
 import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.command.CommandHandler;
+import br.com.liftrecord.usecase.student.SaveStudentUseCase;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import org.slf4j.Logger;

@@ -1,10 +1,10 @@
 package br.com.liftrecord.dataaccess.adapters;
 
-import br.com.liftrecord.application.student.ports.SaveStudentOutputPort;
 import br.com.liftrecord.dataaccess.mappers.StudentTableMapper;
 import br.com.liftrecord.dataaccess.repositories.StudentRepository;
 import br.com.liftrecord.dataaccess.tables.StudentTable;
 import br.com.liftrecord.domain.student.Student;
+import br.com.liftrecord.usecase.student.ports.SaveStudentOutputPort;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.core.annotation.NonNull;
 

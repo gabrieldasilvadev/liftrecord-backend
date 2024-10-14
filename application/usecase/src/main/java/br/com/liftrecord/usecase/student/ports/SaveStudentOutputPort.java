@@ -1,4 +1,4 @@
-package br.com.liftrecord.application.student.ports;
+package br.com.liftrecord.usecase.student.ports;
 
 import br.com.liftrecord.domain.student.Student;
 
