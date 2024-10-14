@@ -1,0 +1,23 @@
+version: "3"
+volumes:
+  data:
+  export:
+services:
+  db:
+    image: docker.io/postgres:14-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=liftrecord
+      - POSTGRES_USER=liftrecord
+      - POSTGRES_PASSWORD=liftrecord
+    volumes:
+      - data:/var/lib/postgresql/data
+      - export:/export
+    networks:
+      - liftrecord
+    restart: always
+
+networks:
+  liftrecord:
+    driver: bridge
