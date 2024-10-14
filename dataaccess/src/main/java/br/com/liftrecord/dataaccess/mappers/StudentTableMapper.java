@@ -1,0 +1,15 @@
+package br.com.liftrecord.dataaccess.mappers;
+
+import br.com.liftrecord.dataaccess.tables.StudentTable;
+import br.com.liftrecord.domain.student.Student;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
+@Mapper
+public interface StudentTableMapper {
+  StudentTableMapper  INSTANCE = Mappers.getMapper(StudentTableMapper.class);
+
+  StudentTable toTable(Student student);
+
+  Student toDomain(StudentTable studentSaved);
+}
