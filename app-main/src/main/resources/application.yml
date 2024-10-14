@@ -1,0 +1,26 @@
+micronaut:
+  serde:
+    property-naming-strategy: SNAKE_CASE
+  application:
+    name: app-main
+    packages:
+      - br.com.liftrecord.dataaccess
+      - br.com.liftrecord.shared
+      - br.com.liftrecord.command
+      - br.com.liftrecord.query
+      - br.com.liftrecord.domain
+      - br.com.liftrecord.infrastrucutre
+      - br.com.liftrecord.application
+      - br.com.liftrecord.api
+      - br.com.liftrecord.bean
+      - br.com.liftrecord.app-main
+  server:
+    port: 7000
+
+jackson:
+  property-naming-strategy: SNAKE_CASE
+
+logger:
+  levels:
+    io.micronaut.context: INFO
+
