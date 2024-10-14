@@ -15,6 +15,8 @@
         <module>query</module>
         <module>command</module>
         <module>api</module>
+        <module>bean</module>
+        <module>app-main</module>
     </modules>
 
     <properties>
@@ -29,7 +31,7 @@
         <micronaut.runtime>netty</micronaut.runtime>
         <micronaut.aot.enabled>false</micronaut.aot.enabled>
         <micronaut.aot.packageName>br.com.liftrecord.aot.generated</micronaut.aot.packageName>
-        <exec.mainClass>br.com.liftrecord.api.Application</exec.mainClass>
+        <exec.mainClass>br.com.liftrecord.appmain.Entrypoint</exec.mainClass>
     </properties>
 
     <parent>
@@ -72,16 +74,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>io.micronaut.sourcegen</groupId>
-            <artifactId>micronaut-sourcegen-annotations</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>runtime</scope>
@@ -115,17 +107,6 @@
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut</groupId>
-            <artifactId>micronaut-http-client-core</artifactId>
-            <version>4.6.6</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -184,7 +165,19 @@
             <artifactId>annotations</artifactId>
             <version>26.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.instancio</groupId>
+            <artifactId>instancio-junit</artifactId>
+            <version>5.0.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -226,10 +219,16 @@
                             <groupId>io.micronaut.sourcegen</groupId>
                             <artifactId>micronaut-sourcegen-generator-java</artifactId>
                         </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=br.com.liftrecord</arg>
                         <arg>-Amicronaut.processing.module=framework</arg>
+                        <arg>-J-Dmicronaut.openapi.property.naming.strategy=SNAKE_CASE</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>

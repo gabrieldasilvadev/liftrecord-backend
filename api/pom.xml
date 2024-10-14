@@ -14,7 +14,8 @@
         <micronaut.openapi.definition>src/main/resources/library-definition.yml</micronaut.openapi.definition>
         <micronaut.openapi.api.package.name>br.com.liftrecord.contract.api</micronaut.openapi.api.package.name>
         <micronaut.openapi.model.package.name>br.com.liftrecord.contract.model</micronaut.openapi.model.package.name>
-        <micronaut.openapi.invoker.package.name>br.com.liftrecord.contract.invoker</micronaut.openapi.invoker.package.name>
+        <micronaut.openapi.invoker.package.name>br.com.liftrecord.contract.invoker
+        </micronaut.openapi.invoker.package.name>
         <micronaut.openapi.use.reactive>false</micronaut.openapi.use.reactive>
         <micronaut.openapi.server.use.auth>true</micronaut.openapi.server.use.auth>
     </properties>
@@ -25,6 +26,46 @@
             <groupId>br.com.liftrecord</groupId>
             <artifactId>domain</artifactId>
             <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>command</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>shared</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>dataaccess</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-http-client-core</artifactId>
+            <version>4.6.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.sourcegen</groupId>
+            <artifactId>micronaut-sourcegen-annotations</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>
