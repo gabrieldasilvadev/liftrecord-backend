@@ -7,6 +7,7 @@ import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.usecase.student.ports.SaveStudentOutputPort;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.core.annotation.NonNull;
+import java.util.UUID;
 
 @Context
 public class SaveStudentAdapter implements SaveStudentOutputPort {
@@ -19,7 +20,12 @@ public class SaveStudentAdapter implements SaveStudentOutputPort {
 
   @Override
   public @NonNull Student save(final Student student) {
-    final StudentTable studentSaved = repository.save(StudentTableMapper.INSTANCE.toTable(student));
+    final StudentTable studentSaved = repository.save(StudentTable.builder()
+        .id(UUID.randomUUID().toString())
+        .name(student.getName())
+        .email(student.getEmail().getValue())
+        .cellphone(student.getCellphone().getFullNumber())
+        .build());
     return StudentTableMapper.INSTANCE.toDomain(studentSaved);
   }
 }

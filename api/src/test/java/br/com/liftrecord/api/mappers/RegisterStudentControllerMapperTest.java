@@ -1,10 +1,11 @@
 package br.com.liftrecord.api.mappers;
 
 import br.com.liftrecord.api.controllers.student.mappers.RegisterStudentControllerMapper;
-import br.com.liftrecord.command.commands.RegisterStudentCommand;
+import br.com.liftrecord.command.student.commands.RegisterStudentCommand;
 import br.com.liftrecord.contract.model.RegisterStudentRequest;
 import br.com.liftrecord.contract.model.RegisterStudentResponse;
 import br.com.liftrecord.domain.student.Student;
+import de.huxhorn.sulky.ulid.ULID;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

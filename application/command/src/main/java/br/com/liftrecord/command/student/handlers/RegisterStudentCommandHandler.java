@@ -1,8 +1,8 @@
-package br.com.liftrecord.command.handlers;
+package br.com.liftrecord.command.student.handlers;
 
-import br.com.liftrecord.command.commands.RegisterStudentCommand;
+import br.com.liftrecord.command.student.commands.RegisterStudentCommand;
 import br.com.liftrecord.domain.student.Student;
-import br.com.liftrecord.command.CommandHandler;
+import br.com.liftrecord.shared.CommandHandler;
 import br.com.liftrecord.usecase.student.SaveStudentUseCase;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
@@ -25,5 +25,10 @@ public class RegisterStudentCommandHandler implements CommandHandler<RegisterStu
     logger.info("RegisterStudentCommandHandler.handle: {}", command);
     Student student = new Student(command.getName(), command.getEmail(), command.getCellphone());
     return saveStudentUseCase.execute(student);
+  }
+
+  @Override
+  public Class<RegisterStudentCommand> getCommandType() {
+    return RegisterStudentCommand.class;
   }
 }

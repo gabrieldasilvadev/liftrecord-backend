@@ -1,7 +1,7 @@
 
 package br.com.liftrecord.api.controllers.student.mappers;
 
-import br.com.liftrecord.command.commands.RegisterStudentCommand;
+import br.com.liftrecord.command.student.commands.RegisterStudentCommand;
 import br.com.liftrecord.contract.model.RegisterStudentRequest;
 import br.com.liftrecord.contract.model.RegisterStudentResponse;
 import br.com.liftrecord.domain.student.Student;

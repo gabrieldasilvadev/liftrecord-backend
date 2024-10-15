@@ -1,11 +1,11 @@
-package br.com.liftrecord.command.commands;
+package br.com.liftrecord.command.student.commands;
 
-import br.com.liftrecord.command.Command;
+import br.com.liftrecord.shared.Command;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable.Serializable
-public class RegisterStudentCommand extends Command {
+public class RegisterStudentCommand implements Command {
   private final String name;
   private final String email;
   private final String cellphone;
