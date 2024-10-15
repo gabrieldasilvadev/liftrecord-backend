@@ -1,4 +1,4 @@
-package br.com.liftrecord.command;
+package br.com.liftrecord.shared;
 
 import br.com.liftrecord.domain.DomainObject;
 
@@ -14,4 +14,6 @@ public interface CommandHandler<I extends Command, O extends DomainObject> {
   default boolean canHandle(I command) {
     return true;
   }
+
+  Class<I> getCommandType();
 }
