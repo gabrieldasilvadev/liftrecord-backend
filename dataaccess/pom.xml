@@ -11,13 +11,6 @@
 
     <artifactId>dataaccess</artifactId>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
-
     <properties>
         <!--suppress UnresolvedMavenProperty -->
         <jdbc.url>${env.DATABASE_URL}</jdbc.url>
@@ -47,31 +40,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.data</groupId>
-            <artifactId>micronaut-data-hibernate-jpa</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.sql</groupId>
-            <artifactId>micronaut-jdbc-hikari</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.flyway</groupId>
-            <artifactId>micronaut-flyway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-database-postgresql</artifactId>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
@@ -86,21 +57,16 @@
             <groupId>io.micronaut.sql</groupId>
             <artifactId>micronaut-jdbc-hikari</artifactId>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.flyway</groupId>
-            <artifactId>micronaut-flyway</artifactId>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord.usecase</groupId>
             <artifactId>usecase</artifactId>
             <version>0.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.data</groupId>
+            <artifactId>micronaut-data-processor</artifactId>
         </dependency>
     </dependencies>
 

@@ -48,11 +48,6 @@
         </dependency>
 
         <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-client-core</artifactId>
             <version>4.6.6</version>
