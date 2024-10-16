@@ -2,7 +2,7 @@ package br.com.liftrecord.command.student.handlers;
 
 import br.com.liftrecord.command.student.commands.RegisterStudentCommand;
 import br.com.liftrecord.domain.student.Student;
-import br.com.liftrecord.command.CommandHandler;
+import br.com.liftrecord.shared.CommandHandler;
 import br.com.liftrecord.usecase.student.SaveStudentUseCase;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
