@@ -10,7 +10,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>br.com.liftrecord.usecase</groupId>
+    <groupId>br.com.liftrecord</groupId>
     <artifactId>usecase</artifactId>
 
     <properties>
