@@ -1,4 +1,4 @@
-package br.com.liftrecord.shared;
+package br.com.liftrecord.command;
 
 import br.com.liftrecord.domain.DomainObject;
 

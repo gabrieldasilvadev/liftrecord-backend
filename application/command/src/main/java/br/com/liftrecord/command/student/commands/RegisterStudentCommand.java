@@ -1,6 +1,6 @@
 package br.com.liftrecord.command.student.commands;
 
-import br.com.liftrecord.shared.Command;
+import br.com.liftrecord.command.Command;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.micronaut.serde.annotation.Serdeable;
 
