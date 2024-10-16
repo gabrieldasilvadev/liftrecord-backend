@@ -20,6 +20,49 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>shared</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>dataaccess</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>infrastructure</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>bean</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>application</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>api</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!--    Libs    -->
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -48,6 +91,11 @@
             <artifactId>rest-assured-all</artifactId>
             <version>${rest-assured.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
