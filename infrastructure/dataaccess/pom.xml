@@ -11,15 +11,6 @@
 
     <artifactId>dataaccess</artifactId>
 
-    <properties>
-        <!--suppress UnresolvedMavenProperty -->
-        <jdbc.url>${env.DATABASE_URL}</jdbc.url>
-        <!--suppress UnresolvedMavenProperty -->
-        <jdbc.username>${env.DATABASE_USERNAME}</jdbc.username>
-        <!--suppress UnresolvedMavenProperty -->
-        <jdbc.password>${env.DATABASE_PASSWORD}</jdbc.password>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
@@ -75,19 +66,12 @@
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>10.19.0</version>
+                <version>10.20.0</version>
                 <configuration>
-                    <url>${jdbc.url}</url>
-                    <user>${jdbc.username}</user>
-                    <password>${jdbc.password}</password>
+                    <url>jdbc:postgresql://localhost:5432/liftrecord</url>
+                    <user>liftrecord</user>
+                    <password>liftrecord</password>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.postgresql</groupId>
-                        <artifactId>postgresql</artifactId>
-                        <version>42.7.4</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
