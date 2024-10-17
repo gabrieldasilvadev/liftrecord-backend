@@ -27,13 +27,15 @@ logger:
 datasources:
   default:
     url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
+    username: ${DATABASE_USER}
     password: ${DATABASE_PASSWORD}
     driverClassName: org.postgresql.Driver
     default:
       enabled: true
 jpa:
   default:
+    entity-scan:
+      packages: br.com.liftrecord.dataaccess.tables
     properties:
       hibernate:
         hbm2ddl:
@@ -41,5 +43,6 @@ jpa:
         show_sql: true
 flyway:
   datasources:
+    url:
     default:
       locations: classpath:db/migration
