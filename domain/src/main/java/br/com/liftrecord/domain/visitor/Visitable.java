@@ -1,5 +1,5 @@
 package br.com.liftrecord.domain.visitor;
 
-public interface Visitable {
-  void accept(Visitor visitor);
+public interface Visitable<T> {
+  void accept(Visitor<T, ?> visitor);
 }

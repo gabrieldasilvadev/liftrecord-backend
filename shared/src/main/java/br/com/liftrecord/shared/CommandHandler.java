@@ -1,6 +1,6 @@
 package br.com.liftrecord.shared;
 
-import br.com.liftrecord.domain.DomainObject;
+import br.com.liftrecord.domain.core.DomainObject;
 
 @SuppressWarnings("unchecked")
 public interface CommandHandler<I extends Command, O extends DomainObject> {

@@ -1,6 +1,6 @@
 package br.com.liftrecord.shared.mediator;
 
-import br.com.liftrecord.domain.DomainObject;
+import br.com.liftrecord.domain.core.DomainObject;
 import br.com.liftrecord.shared.Command;
 import br.com.liftrecord.shared.CommandHandler;
 import jakarta.inject.Singleton;
