@@ -12,7 +12,6 @@
         <module>domain</module>
         <module>shared</module>
         <module>api</module>
-        <module>bean</module>
         <module>app-main</module>
         <module>architecture-test</module>
         <module>component-test</module>

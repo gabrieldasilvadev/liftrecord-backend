@@ -1,4 +1,4 @@
-package br.com.liftrecord.bean;
+package br.com.liftrecord.appmain.beans;
 
 import br.com.liftrecord.dataaccess.adapters.SaveStudentAdapter;
 import br.com.liftrecord.dataaccess.repositories.StudentRepository;
@@ -10,7 +10,7 @@ import jakarta.inject.Singleton;
 
 @Factory
 @Requires(beans = StudentRepository.class)
-public class SaveStudentOutputPortBeanConfig {
+public class SaveStudentOutputPortBean {
 
   @Bean
   @Singleton
