@@ -1,9 +1,9 @@
 package br.com.liftrecord.domain.student.valueobjects;
 
-public class StudentId {
-  private final String value;
+import br.com.liftrecord.domain.core.Identifier;
 
+public class StudentId extends Identifier<String> {
   public StudentId(String value) {
-    this.value = value;
+    super(value);
   }
 }
