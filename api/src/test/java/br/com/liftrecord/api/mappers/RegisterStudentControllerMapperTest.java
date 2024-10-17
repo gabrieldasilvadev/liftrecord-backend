@@ -5,7 +5,6 @@ import br.com.liftrecord.command.student.commands.RegisterStudentCommand;
 import br.com.liftrecord.contract.model.RegisterStudentRequest;
 import br.com.liftrecord.contract.model.RegisterStudentResponse;
 import br.com.liftrecord.domain.student.Student;
-import de.huxhorn.sulky.ulid.ULID;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,8 +25,8 @@ public class RegisterStudentControllerMapperTest {
 
     assertNotNull(response);
     assertEquals(student.getName(), response.getName());
-    assertEquals(student.getEmail().getValue(), response.getEmail());
-    assertEquals(student.getCellphone().getFullNumber(), response.getCellphone());
+    assertEquals(student.getContact().getEmail().getValue(), response.getEmail());
+    assertEquals(student.getContact().getCellphone().getFullNumber(), response.getCellphone());
   }
 
   @Test

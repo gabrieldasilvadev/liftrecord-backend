@@ -6,16 +6,32 @@ import br.com.liftrecord.contract.model.RegisterStudentRequest;
 import br.com.liftrecord.contract.model.RegisterStudentResponse;
 import br.com.liftrecord.domain.student.Student;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface RegisterStudentControllerMapper {
   RegisterStudentControllerMapper INSTANCE = Mappers.getMapper(RegisterStudentControllerMapper.class);
 
-  RegisterStudentCommand toCommand(RegisterStudentRequest registerStudentRequest);
+  default RegisterStudentCommand toCommand(RegisterStudentRequest registerStudentRequest) {
+    return new RegisterStudentCommand(
+        registerStudentRequest.getName(),
+        registerStudentRequest.getEmail(),
+        registerStudentRequest.getCellphone(),
+        registerStudentRequest.getAddress().getState(),
+        registerStudentRequest.getAddress().getCity(),
+        registerStudentRequest.getAddress().getNeighborhood(),
+        registerStudentRequest.getAddress().getStreet(),
+        registerStudentRequest.getAddress().getNumber(),
+        registerStudentRequest.getAddress().getComplement(),
+        registerStudentRequest.getAddress().getZipCode()
+    );
+  }
 
-  @Mapping(target = "email", expression = "java(student.getEmail().getValue())")
-  @Mapping(target = "cellphone", expression = "java(student.getCellphone().getFullNumber())")
-  RegisterStudentResponse toResponse(Student student);
+  default RegisterStudentResponse toResponse(Student student) {
+    return new RegisterStudentResponse()
+        .name(student.getName())
+        .email(student.getContact().getEmail().getValue())
+        .cellphone(student.getContact().getCellphone().getFullNumber())
+        .status(student.getStatus().getValue());
+  };
 }
