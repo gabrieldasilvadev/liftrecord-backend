@@ -4,7 +4,6 @@ import br.com.liftrecord.api.controllers.student.mappers.RegisterStudentControll
 import br.com.liftrecord.contract.api.StudentApi;
 import br.com.liftrecord.contract.model.RegisterStudentRequest;
 import br.com.liftrecord.contract.model.RegisterStudentResponse;
-import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.shared.mediator.Mediator;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
@@ -22,7 +21,6 @@ public class StudentController implements StudentApi {
   @Override
   public HttpResponse<@Valid RegisterStudentResponse> postStudents(RegisterStudentRequest registerStudentRequest) {
     RegisterStudentControllerMapper mapper = RegisterStudentControllerMapper.INSTANCE;
-    final Student student = mediator.execute(mapper.toCommand(registerStudentRequest));
-    return HttpResponse.created(mapper.toResponse(student));
+    return HttpResponse.created(mapper.toResponse(mediator.execute(mapper.toCommand(registerStudentRequest))));
   }
 }
