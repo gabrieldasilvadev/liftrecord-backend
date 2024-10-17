@@ -1,21 +1,23 @@
 package br.com.liftrecord.command.student.commands;
 
+import br.com.liftrecord.domain.student.Student;
+import br.com.liftrecord.domain.student.StudentBuilder;
 import br.com.liftrecord.shared.Command;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable.Serializable
 public class RegisterStudentCommand implements Command {
-  private final String name;
-  private final String email;
-  private final String cellphone;
-  private final String state;
-  private final String city;
-  private final String neighborhood;
-  private final String street;
-  private final String number;
-  private final String complement;
-  private final String zipCode;
+  private String name;
+  private String email;
+  private String cellphone;
+  private String state;
+  private String city;
+  private String neighborhood;
+  private String street;
+  private String number;
+  private String complement;
+  private String zipCode;
 
 
   @JsonCreator
@@ -81,6 +83,46 @@ public class RegisterStudentCommand implements Command {
     return zipCode;
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public void setCellphone(String cellphone) {
+    this.cellphone = cellphone;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public void setNeighborhood(String neighborhood) {
+    this.neighborhood = neighborhood;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  public void setComplement(String complement) {
+    this.complement = complement;
+  }
+
+  public void setZipCode(String zipCode) {
+    this.zipCode = zipCode;
+  }
+
   @Override
   public String toString() {
     return "RegisterStudentCommand{" +
@@ -95,5 +137,20 @@ public class RegisterStudentCommand implements Command {
         ", complement='" + complement + '\'' +
         ", zipCode='" + zipCode + '\'' +
         "} " + super.toString();
+  }
+
+  public Student toStudent() {
+    return new StudentBuilder()
+        .setName(this.name)
+        .setEmail(this.email)
+        .setCellphone(this.cellphone)
+        .setState(this.state)
+        .setCity(this.city)
+        .setNeighborhood(this.neighborhood)
+        .setStreet(this.street)
+        .setNumber(this.number)
+        .setComplement(this.complement)
+        .setZipCode(this.zipCode)
+        .createStudent();
   }
 }

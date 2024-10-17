@@ -26,6 +26,6 @@ public class RegisterStudentComponentTest extends BaseComponentTest {
         .log().all()
         .body("name", equalTo("name_bbaa851b2153"))
         .body("email", equalTo("emailexample@gmail.com"))
-        .body("status", equalTo("active"));
+        .body("status", equalTo("pending_activation"));
   }
 }

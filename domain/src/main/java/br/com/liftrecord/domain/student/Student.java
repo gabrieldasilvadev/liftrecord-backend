@@ -56,6 +56,6 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
 
   public void initializeStudent() {
     super.setId(new StudentId(new ULID().nextULID()));
-    this.status = AccountStatus.ACTIVE;
+    this.status = AccountStatus.PENDING_ACTIVATION;
   }
 }
