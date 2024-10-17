@@ -23,7 +23,7 @@ public class RegisterStudentCommandHandler implements CommandHandler<RegisterStu
   @Override
   public Student handle(final RegisterStudentCommand command) {
     logger.info("RegisterStudentCommandHandler.handle: {}", command);
-    Student student = new Student(command.getName(), command.getEmail(), command.getCellphone());
+    final Student student = command.toStudent();
     return saveStudentUseCase.execute(student);
   }
 

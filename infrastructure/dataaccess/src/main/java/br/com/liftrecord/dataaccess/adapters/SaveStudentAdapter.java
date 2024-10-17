@@ -20,12 +20,8 @@ public class SaveStudentAdapter implements SaveStudentOutputPort {
 
   @Override
   public @NonNull Student save(final Student student) {
-    final StudentTable studentSaved = repository.save(StudentTable.builder()
-        .id(UUID.randomUUID().toString())
-        .name(student.getName())
-        .email(student.getEmail().getValue())
-        .cellphone(student.getCellphone().getFullNumber())
-        .build());
-    return StudentTableMapper.INSTANCE.toDomain(studentSaved);
+    StudentTable table = StudentTableMapper.INSTANCE.toTable(student);
+    repository.save(table);
+    return student;
   }
 }
