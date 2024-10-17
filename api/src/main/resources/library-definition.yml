@@ -5,10 +5,10 @@ info:
 servers:
   - url: 'http://localhost:7000'
 paths:
-  /students:
-    parameters: [ ]
+  /students/:
+    parameters: []
     post:
-      summary: Create new student
+      summary: Register new student
       operationId: post-students
       responses:
         '200':
@@ -23,13 +23,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RegisterStudentRequest'
-        description: ''
+        description: Corpo da requisicao para cadastrar um novo estudante
       tags:
         - student
 components:
   schemas:
     RegisterStudentRequest:
-      title: StudentRequest
+      title: RegisterStudentRequest
       type: object
       properties:
         name:
@@ -38,6 +38,37 @@ components:
           type: string
         email:
           type: string
+        address:
+          $ref: '#/components/schemas/RegisterAddressRequest'
+      required:
+        - name
+        - cellphone
+        - email
+    RegisterAddressRequest:
+      title: RegisterAddressRequest
+      type: object
+      properties:
+        state:
+          type: string
+        city:
+          type: string
+        street:
+          type: string
+        neighborhood:
+          type: string
+        number:
+          type: string
+        complement:
+          type: string
+        zip_code:
+          type: string
+      required:
+        - state
+        - city
+        - street
+        - neighborhood
+        - number
+        - zip_code
     RegisterStudentResponse:
       title: RegisterStudentResponse
       type: object
@@ -48,4 +79,5 @@ components:
           type: string
         cellphone:
           type: string
-  responses: { }
+        status:
+          type: string
