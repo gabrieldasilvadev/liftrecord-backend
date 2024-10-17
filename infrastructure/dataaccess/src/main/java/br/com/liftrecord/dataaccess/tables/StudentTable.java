@@ -1,7 +1,11 @@
 package br.com.liftrecord.dataaccess.tables;
 
+import br.com.liftrecord.domain.student.AccountStatus;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -14,25 +18,37 @@ import java.util.List;
 public class StudentTable {
 
   @Id
-  private String id;
+  private final String id;
   private String name;
+  @Column(unique = true)
   private String email;
+  @Column(unique = true)
   private String cellphone;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "address_id", referencedColumnName = "id")
   private AddressTable address;
+  @Column(name = "body_metrics")
   @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<BodyMetricsTable> bodyMetrics;
+  @Enumerated(EnumType.STRING)
+  private AccountStatus status;
 
   private StudentTable(Builder builder) {
     id = builder.id;
     name = builder.name;
     email = builder.email;
     cellphone = builder.cellphone;
+    address = builder.address;
+    bodyMetrics = builder.bodyMetrics;
+    status = builder.status;
   }
 
   public static Builder builder() {
     return new Builder();
+  }
+
+  public String getId() {
+    return id;
   }
 
 
@@ -41,6 +57,9 @@ public class StudentTable {
     private String name;
     private String email;
     private String cellphone;
+    private AddressTable address;
+    private List<BodyMetricsTable> bodyMetrics;
+    private AccountStatus status;
 
     private Builder() {
     }
@@ -65,40 +84,23 @@ public class StudentTable {
       return this;
     }
 
+    public Builder address(AddressTable val) {
+      address = val;
+      return this;
+    }
+
+    public Builder bodyMetrics(List<BodyMetricsTable> val) {
+      bodyMetrics = val;
+      return this;
+    }
+
+    public Builder status(AccountStatus val) {
+      status = val;
+      return this;
+    }
+
     public StudentTable build() {
       return new StudentTable(this);
     }
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public String getCellphone() {
-    return cellphone;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setCellphone(String cellphone) {
-    this.cellphone = cellphone;
   }
 }

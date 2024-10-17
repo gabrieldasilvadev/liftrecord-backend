@@ -1,4 +1,4 @@
-CREATE TABLE address (
+CREATE TABLE IF NOT EXISTS address (
     id VARCHAR(26) PRIMARY KEY,
     state VARCHAR(2) NOT NULL,
     city VARCHAR(100) NOT NULL,
@@ -13,13 +13,15 @@ CREATE TABLE address (
 
 CREATE TABLE student (
 	id VARCHAR(26) PRIMARY KEY,
-	cellphone VARCHAR(20) NULL,
-	email VARCHAR(100) NULL,
-	"name" VARCHAR(85) NULL,
+	cellphone VARCHAR(20) NULL UNIQUE,
+	email VARCHAR(100) NULL UNIQUE,
+	"name" VARCHAR(85) NOT NULL,
 	address_id VARCHAR(26),
+	status VARCHAR(10) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMP NULL DEFAULT NULL,
-	FOREIGN KEY (address_id) REFERENCES address(id)
+	FOREIGN KEY (address_id) REFERENCES address(id),
+	CONSTRAINT chk_student_status CHECK (status IN ('ACTIVE', 'INACTIVE', 'PENDING_ACTIVATION'))
 );
 
 CREATE TABLE body_metrics (

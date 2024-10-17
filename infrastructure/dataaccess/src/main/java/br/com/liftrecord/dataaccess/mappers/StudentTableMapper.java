@@ -2,9 +2,7 @@ package br.com.liftrecord.dataaccess.mappers;
 
 import br.com.liftrecord.dataaccess.tables.StudentTable;
 import br.com.liftrecord.domain.student.Student;
-import java.util.UUID;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -14,12 +12,12 @@ public interface StudentTableMapper {
 
   default StudentTable toTable(Student student) {
     return StudentTable.builder()
-        .id(UUID.randomUUID().toString())
+        .id(student.getId().getValue())
         .name(student.getName())
-        .email(student.getEmail().getValue())
-        .cellphone(student.getCellphone().getFullNumber())
+        .email(student.getContact().getEmail().getValue())
+        .cellphone(student.getContact().getCellphone().getFullNumber())
+        .address(AddressTableMapper.INSTANCE.toTable(student.getAddress()))
+        .status(student.getStatus())
         .build();
   }
-
-  Student toDomain(StudentTable studentSaved);
 }
