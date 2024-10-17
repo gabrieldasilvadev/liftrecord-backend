@@ -12,7 +12,6 @@ micronaut:
       - br.com.liftrecord.infrastrucutre
       - br.com.liftrecord.application
       - br.com.liftrecord.api
-      - br.com.liftrecord.bean
       - br.com.liftrecord.app-main
   server:
     port: 7000

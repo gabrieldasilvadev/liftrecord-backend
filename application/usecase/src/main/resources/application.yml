@@ -2,16 +2,6 @@
 micronaut:
   application:
     name: application
-    packages:
-      - br.com.liftrecord.dataaccess
-      - br.com.liftrecord.shared
-      - br.com.liftrecord.command
-      - br.com.liftrecord.query
-      - br.com.liftrecord.domain
-      - br.com.liftrecord.infrastrucutre
-      - br.com.liftrecord.application
-      - br.com.liftrecord.api
-      - br.com.liftrecord.bean
   server:
     port: 7000
 
