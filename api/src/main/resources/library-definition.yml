@@ -11,8 +11,8 @@ paths:
       summary: Register new student
       operationId: post-students
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
           content:
             application/json:
               schema:

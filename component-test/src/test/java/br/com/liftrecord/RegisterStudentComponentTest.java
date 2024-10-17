@@ -1,5 +1,6 @@
 package br.com.liftrecord;
 
+import io.micronaut.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import br.com.liftrecord.utils.JsonReaderUtil;
@@ -22,7 +23,7 @@ public class RegisterStudentComponentTest extends BaseComponentTest {
         .when()
         .post("/students")
         .then()
-        .statusCode(200)
+        .statusCode(HttpStatus.CREATED.getCode())
         .log().all()
         .body("name", equalTo("name_bbaa851b2153"))
         .body("email", equalTo("emailexample@gmail.com"))
