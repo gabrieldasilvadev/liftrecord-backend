@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class JsonReader {
+public class JsonReaderUtil {
   public static final String SRC_TEST_RESOURCES_STUBS = "src/test/resources/stubs/";
 
   public static String readJsonRequest(String path) {
