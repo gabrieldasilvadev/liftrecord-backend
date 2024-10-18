@@ -25,12 +25,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>application</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>

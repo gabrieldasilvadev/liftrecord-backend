@@ -40,30 +40,12 @@
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>infrastructure</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>application</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
             <artifactId>api</artifactId>
             <version>0.1</version>
             <scope>compile</scope>
         </dependency>
 
         <!--    Libs    -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.7.1</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>io.micronaut.test</groupId>
             <artifactId>micronaut-test-junit5</artifactId>

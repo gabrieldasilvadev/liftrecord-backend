@@ -7,7 +7,6 @@ import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.usecase.student.ports.SaveStudentOutputPort;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.core.annotation.NonNull;
-import java.util.UUID;
 
 @Context
 public class SaveStudentAdapter implements SaveStudentOutputPort {

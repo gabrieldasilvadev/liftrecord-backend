@@ -8,7 +8,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>infrastructure</module>
-        <module>application</module>
+        <module>command</module>
+        <module>dataaccess</module>
+        <module>usecase</module>
         <module>domain</module>
         <module>shared</module>
         <module>api</module>
