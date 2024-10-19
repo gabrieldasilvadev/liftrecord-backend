@@ -17,13 +17,11 @@
             <groupId>br.com.liftrecord</groupId>
             <artifactId>domain</artifactId>
             <version>0.1</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>shared</artifactId>
             <version>0.1</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -52,7 +50,6 @@
             <groupId>br.com.liftrecord</groupId>
             <artifactId>usecase</artifactId>
             <version>0.1</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>

@@ -33,20 +33,7 @@ public abstract class BaseComponentTest implements TestPropertyProvider {
   private DataSource dataSource;
 
   static {
-    try (Stream<Path> paths = Files.walk(Paths.get(MigrationPathUtil.getMigrationPath()))) {
-      paths
-          .filter(Files::isRegularFile)
-          .filter(path -> path.toString().endsWith(".sql"))
-          .forEach(path -> {
-            String fileName = path.getFileName().toString();
-            postgres.withCopyFileToContainer(
-                MountableFile.forHostPath(path),
-                "docker-entrypoint-initdb.d/" + fileName
-            );
-          });
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    prepareDatabase();
   }
 
   @BeforeEach
@@ -65,6 +52,33 @@ public abstract class BaseComponentTest implements TestPropertyProvider {
     postgres.stop();
   }
 
+  @Override
+  public java.util.Map<String, String> getProperties() {
+    postgres.start();
+    return java.util.Map.of(
+        "datasources.default.url", postgres.getJdbcUrl(),
+        "datasources.default.username", postgres.getUsername(),
+        "datasources.default.password", postgres.getPassword()
+    );
+  }
+
+  private static void prepareDatabase() {
+    try (Stream<Path> paths = Files.walk(Paths.get(MigrationPathUtil.getMigrationPath()))) {
+      paths
+          .filter(Files::isRegularFile)
+          .filter(path -> path.toString().endsWith(".sql"))
+          .forEach(path -> {
+            String fileName = path.getFileName().toString();
+            postgres.withCopyFileToContainer(
+                MountableFile.forHostPath(path.toString()),
+                "docker-entrypoint-initdb.d/" + fileName
+            );
+          });
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   private void truncateTables() throws SQLException {
     try (Connection connection = dataSource.getConnection();
          Statement statement = connection.createStatement()) {
@@ -77,16 +91,5 @@ public abstract class BaseComponentTest implements TestPropertyProvider {
           "  END LOOP; " +
           "END $$;");
     }
-  }
-
-
-  @Override
-  public java.util.Map<String, String> getProperties() {
-    postgres.start();
-    return java.util.Map.of(
-        "datasources.default.url", postgres.getJdbcUrl(),
-        "datasources.default.username", postgres.getUsername(),
-        "datasources.default.password", postgres.getPassword()
-    );
   }
 }

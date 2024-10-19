@@ -1,0 +1,14 @@
+{
+  "name": "name_bbaa851b2153",
+  "email": "emailexample@gmail.com",
+  "cellphone": "11983382818",
+  "address": {
+    "state": "sp",
+    "city": "sao paulo",
+    "neighborhood": "itaim paulista",
+    "street": "antonio joao de medeiros",
+    "number": "12",
+    "complement": "21",
+    "zip_code": "12345678"
+  }
+}

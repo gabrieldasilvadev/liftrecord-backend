@@ -10,8 +10,8 @@
         <module>api</module>
         <module>container</module>
         <module>architecture-test</module>
-        <module>component-test</module>
         <module>application</module>
+        <module>component-test</module>
     </modules>
 
     <parent>
@@ -76,11 +76,6 @@
             </dependency>
             <dependency>
                 <groupId>br.com.liftrecord</groupId>
-                <artifactId>component-test</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>br.com.liftrecord</groupId>
                 <artifactId>domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -97,6 +92,11 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>${mockito.version}</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -134,30 +134,10 @@
             <artifactId>aspectjtools</artifactId>
             <version>1.9.22.1</version>
         </dependency>
-
-
-
-
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
@@ -208,13 +188,22 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-compress</artifactId>
-            <version>1.26.0</version>
-        </dependency>
-        <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-client</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.data</groupId>
+            <artifactId>micronaut-data-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

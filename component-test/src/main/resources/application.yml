@@ -1,6 +1,6 @@
 micronaut:
   server:
-    port: 7050
+    port: 3000
   application:
     name: component-test
 
@@ -9,3 +9,7 @@ datasources:
     db-type: postgres
     driverClassName: org.postgresql.Driver
     dialect: POSTGRES
+
+logger:
+  levels:
+    io.micronaut.context: INFO
