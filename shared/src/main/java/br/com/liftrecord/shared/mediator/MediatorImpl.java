@@ -3,13 +3,11 @@ package br.com.liftrecord.shared.mediator;
 import br.com.liftrecord.domain.core.DomainObject;
 import br.com.liftrecord.shared.Command;
 import br.com.liftrecord.shared.CommandHandler;
-import jakarta.inject.Singleton;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("unchecked")
-@Singleton
 public class MediatorImpl implements Mediator {
 
     private final Map<Class<?>, CommandHandler<?, ?>> handlerMap;

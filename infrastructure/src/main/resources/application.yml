@@ -1,0 +1,8 @@
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: ${database.url}
+    user: ${database.username}
+    password: ${database.password}
+    locations: db.migration

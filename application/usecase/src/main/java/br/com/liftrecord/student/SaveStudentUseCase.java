@@ -4,9 +4,7 @@ import br.com.liftrecord.UseCase;
 import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.student.ports.SaveStudentOutputPort;
 import br.com.liftrecord.student.visitor.FortuneRegisterStudent;
-import jakarta.inject.Singleton;
 
-@Singleton
 public class SaveStudentUseCase implements UseCase<Student, Student> {
 
   private final SaveStudentOutputPort saveStudentOutputPort;

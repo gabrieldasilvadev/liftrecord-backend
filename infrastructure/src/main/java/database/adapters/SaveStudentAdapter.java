@@ -5,10 +5,8 @@ import database.mappers.StudentTableMapper;
 import database.repositories.StudentRepository;
 import database.tables.StudentTable;
 import br.com.liftrecord.domain.student.Student;
-import io.micronaut.context.annotation.Context;
-import io.micronaut.core.annotation.NonNull;
+import org.springframework.lang.NonNull;
 
-@Context
 public class SaveStudentAdapter implements SaveStudentOutputPort {
 
   private final StudentRepository repository;

@@ -3,10 +3,7 @@ package br.com.liftrecord.command.student.commands;
 import br.com.liftrecord.domain.student.Student;
 import br.com.liftrecord.domain.student.StudentBuilder;
 import br.com.liftrecord.shared.Command;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.micronaut.serde.annotation.Serdeable;
 
-@Serdeable.Serializable
 public class RegisterStudentCommand implements Command {
   private String name;
   private String email;
@@ -20,7 +17,6 @@ public class RegisterStudentCommand implements Command {
   private String zipCode;
 
 
-  @JsonCreator
   public RegisterStudentCommand(String name,
                                 String email,
                                 String cellphone,

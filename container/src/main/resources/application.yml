@@ -1,44 +1,34 @@
-micronaut:
-  serde:
-    property-naming-strategy: SNAKE_CASE
-  application:
-    name: app-main
-    packages:
-      - br.com.liftrecord.shared
-      - br.com.liftrecord.command
-      - br.com.liftrecord.domain
-      - br.com.liftrecord.infrastrucutre
-      - br.com.liftrecord.api
-      - br.com.liftrecord.app-main
-  server:
-    port: 7000
+server:
+  port: 7000
 
-jackson:
-  property-naming-strategy: SNAKE_CASE
+spring:
+  application:
+    name: liftrecord-backend
+  datasource:
+    url: ${database.url}
+    username: ${database.username}
+    password: ${database.password}
+    hikari:
+      maximum-pool-size: 10
+      data-source-properties:
+        ### https://jdbc.postgresql.org/documentation/use/#connection-parameters
+        reWriteBatchedInserts: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: none
+        generate_statistics: false
+        format_sql: false
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+    open-in-view: false
+  task:
+    execution:
+      pool:
+        queue-capacity: 10000
 
 logger:
   levels:
     io.micronaut.context: INFO
-
-datasources:
-  default:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
-    driverClassName: org.postgresql.Driver
-    default:
-      enabled: true
-jpa:
-  default:
-#    entity-scan:
-#      packages: br.com.liftrecord.dataaccess.tables
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: none
-        show_sql: true
-flyway:
-  datasources:
-    url:
-    default:
-      locations: classpath:db/migration
