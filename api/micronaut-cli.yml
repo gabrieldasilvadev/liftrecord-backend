@@ -1,6 +1,0 @@
-applicationType: default
-defaultPackage: br.com.liftrecord
-testFramework: junit
-sourceLanguage: java
-buildTool: maven
-features: [ annotation-api, app-name, hibernate-validator, http-client-test, jackson-databind, java, java-application, junit, logback, maven, maven-enforcer-plugin, micronaut-aop, micronaut-aot, micronaut-http-validation, mockito, netty-server, properties, readme, serialization-jackson, shade, sourcegen-generator, static-resources ]

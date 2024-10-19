@@ -5,15 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.liftrecord</groupId>
-        <artifactId>backend</artifactId>
+        <artifactId>application</artifactId>
         <version>0.1</version>
     </parent>
 
-    <artifactId>architecture-test</artifactId>
+    <artifactId>usecase</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+    </dependencies>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 </project>

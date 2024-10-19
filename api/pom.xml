@@ -8,6 +8,13 @@
         <version>0.1</version>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
     <properties>
         <!--    OpenAPI Generator-->
         <micronaut.openapi.generate.client>true</micronaut.openapi.generate.client>
@@ -36,11 +43,17 @@
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>dataaccess</artifactId>
+            <artifactId>command</artifactId>
             <version>0.1</version>
             <scope>compile</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-http-server-netty</artifactId>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-client-core</artifactId>
@@ -58,10 +71,8 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>command</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
         </dependency>
     </dependencies>
 

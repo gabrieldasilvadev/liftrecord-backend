@@ -40,7 +40,7 @@ public abstract class BaseComponentTest implements TestPropertyProvider {
           .forEach(path -> {
             String fileName = path.getFileName().toString();
             postgres.withCopyFileToContainer(
-                MountableFile.forHostPath(path.toString()),
+                MountableFile.forHostPath(path),
                 "docker-entrypoint-initdb.d/" + fileName
             );
           });

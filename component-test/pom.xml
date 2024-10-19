@@ -12,14 +12,17 @@
     <artifactId>component-test</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rest-assured.version>5.5.0</rest-assured.version>
     </properties>
 
-    <dependencies>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 
+    <dependencies>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>domain</artifactId>
@@ -29,12 +32,6 @@
         <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>shared</artifactId>
-            <version>0.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>dataaccess</artifactId>
             <version>0.1</version>
             <scope>compile</scope>
         </dependency>
