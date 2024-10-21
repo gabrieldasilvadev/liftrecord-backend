@@ -1,37 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.liftrecord</groupId>
         <artifactId>backend</artifactId>
-        <version>0.1</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>component-test</artifactId>
+
+    <name>component-test</name>
+
+    <properties>
+        <rest-assured.version>5.5.0</rest-assured.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
+            <artifactId>container</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
             <artifactId>domain</artifactId>
-            <version>0.1</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>command</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>usecase</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>database</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>shared</artifactId>
-            <version>0.1</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>infrastructure</artifactId>
-            <version>0.1</version>
+            <artifactId>common-domain</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>api</artifactId>
-            <version>0.1</version>
+            <artifactId>common-application</artifactId>
+            <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -62,9 +92,30 @@
             <version>${rest-assured.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Testcontainers -->
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>postgresql</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -74,18 +125,8 @@
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>postgresql</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

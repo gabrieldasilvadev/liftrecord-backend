@@ -5,7 +5,7 @@
     <parent>
         <groupId>br.com.liftrecord</groupId>
         <artifactId>backend</artifactId>
-        <version>0.1</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,28 +13,57 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>domain</artifactId>
-            <version>0.1</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>infrastructure</artifactId>
-            <version>0.1</version>
+            <artifactId>command</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>usecase</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>database</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>http</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
             <artifactId>shared</artifactId>
-            <version>0.1</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>api</artifactId>
-            <version>0.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>10.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>10.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
 
@@ -59,4 +88,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

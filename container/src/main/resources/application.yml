@@ -1,34 +1,29 @@
 server:
   port: 7000
 
+logging:
+  level:
+    br.com.liftrecord: INFO
+
 spring:
-  application:
-    name: liftrecord-backend
-  datasource:
-    url: ${database.url}
-    username: ${database.username}
-    password: ${database.password}
-    hikari:
-      maximum-pool-size: 10
-      data-source-properties:
-        ### https://jdbc.postgresql.org/documentation/use/#connection-parameters
-        reWriteBatchedInserts: true
   jpa:
+    database: POSTGRESQL
+    open-in-view: false
     show-sql: true
     properties:
       hibernate:
         ddl-auto: none
         generate_statistics: false
         format_sql: false
-        jdbc:
-          batch_size: 25
-        order_inserts: true
-    open-in-view: false
-  task:
-    execution:
-      pool:
-        queue-capacity: 10000
-
-logger:
-  levels:
-    io.micronaut.context: INFO
+  datasource:
+    url: ${database.url}?binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    username: ${database.username}
+    password: ${database.password}
+    initialization-mode: always
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: ${database.url}
+    user: ${database.username}
+    password: ${database.password}
