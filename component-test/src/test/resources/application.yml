@@ -1,0 +1,8 @@
+logging:
+  level:
+    root: INFO
+    br.com.liftrecord: DEBUG
+
+spring:
+  flyway:
+    enabled: false
