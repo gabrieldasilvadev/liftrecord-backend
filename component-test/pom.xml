@@ -48,11 +48,6 @@
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>shared</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
             <artifactId>common-domain</artifactId>
             <version>${project.version}</version>
         </dependency>

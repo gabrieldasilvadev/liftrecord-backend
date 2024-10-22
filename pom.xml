@@ -8,7 +8,6 @@
 		<module>infrastructure</module>
 		<module>domain</module>
 		<module>container</module>
-		<module>shared</module>
 		<module>common</module>
 		<module>component-test</module>
 	</modules>
@@ -16,7 +15,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.10</version>
+		<version>3.3.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -57,11 +56,6 @@
 			<dependency>
 				<groupId>br.com.liftrecord</groupId>
 				<artifactId>database</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>br.com.liftrecord</groupId>
-				<artifactId>shared</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -110,6 +104,12 @@
 			<version>3.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.34</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -126,7 +126,11 @@
 							<artifactId>mapstruct-processor</artifactId>
 							<version>${org.mapstruct.version}</version>
 						</path>
-						<!-- other annotation processors -->
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.34</version>
+						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
