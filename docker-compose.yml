@@ -9,3 +9,26 @@ services:
       - POSTGRES_PASSWORD=liftrecord
       - POSTGRES_USER=liftrecord
       - POSTGRES_DB=liftrecord
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "postgres", "service": "postgres"}]'
+  redis:
+    image: redis
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "redis", "service": "redis"}]'
+  datadog:
+    image: datadog/agent
+    build: datadog
+    links:
+      - redis
+      - liftrecord-db
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=datadoghq.com
+      - DD_APM_ENABLED=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_DOCKER_CONTAINER_USE_FILE=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
