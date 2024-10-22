@@ -44,18 +44,16 @@ public class RegisterStudentCommand implements Command {
   }
 
   public Student toStudent() {
-    return new StudentBuilder()
-        .setName(this.name)
-        .setEmail(this.email)
-        .setCellphone(this.cellphone)
-        .setState(this.state)
-        .setCity(this.city)
-        .setNeighborhood(this.neighborhood)
-        .setStreet(this.street)
-        .setNumber(this.number)
-        .setComplement(this.complement)
-        .setZipCode(this.zipCode)
-        .createStudent();
+    return new Student(name,
+        email,
+        cellphone,
+        state,
+        city,
+        neighborhood,
+        street,
+        number,
+        complement,
+        zipCode);
   }
 
   public String getName() {

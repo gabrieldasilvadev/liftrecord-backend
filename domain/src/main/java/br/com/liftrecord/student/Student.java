@@ -11,7 +11,9 @@ import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import de.huxhorn.sulky.ulid.ULID;
 import java.util.Objects;
+import lombok.Getter;
 
+@Getter
 public class Student extends DomainObject<StudentId> implements Visitable<Student> {
   private final String name;
   private final Contact contact;
@@ -36,25 +38,5 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
   public void initializeStudent() {
     super.setId(new StudentId(new ULID().nextULID()));
     this.status = AccountStatus.PENDING_ACTIVATION;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public Contact getContact() {
-    return contact;
-  }
-
-  public Address getAddress() {
-    return address;
-  }
-
-  public BodyMetrics getBodyMetrics() {
-    return bodyMetrics;
-  }
-
-  public AccountStatus getStatus() {
-    return status;
   }
 }

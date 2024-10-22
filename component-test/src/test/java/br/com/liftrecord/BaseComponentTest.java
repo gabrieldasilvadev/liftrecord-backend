@@ -26,7 +26,6 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.MountableFile;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
@@ -76,7 +75,7 @@ public abstract class BaseComponentTest {
   }
 
   private static void prepareDatabase() {
-    logger.info("Iniciando a preparação do banco de dados");
+    logger.info("Initializing population of database");
     try (Connection connection = DriverManager.getConnection(
         postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword());
          Statement statement = connection.createStatement();
@@ -87,7 +86,7 @@ public abstract class BaseComponentTest {
           .forEach(path -> {
             try {
               String sql = new String(Files.readAllBytes(path));
-              statement.execute(sql);  // Executa o SQL diretamente
+              statement.execute(sql);
               logger.info("Performed migration: {}", path.getFileName().toString());
             } catch (IOException | SQLException e) {
               logger.error("Error executing migration: " + path.getFileName().toString(), e);
