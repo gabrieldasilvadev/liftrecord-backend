@@ -1,4 +1,4 @@
-package br.com.liftrecord.aop;
+package br.com.liftrecord.idempotency;
 
 import java.time.ZonedDateTime;
 

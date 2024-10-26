@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController implements StudentApi {
 
-  private final Mediator mediator; // Deve ser final para garantir a injeção correta
+  private final Mediator mediator;
 
   public StudentController(Mediator mediator) {
     this.mediator = mediator;

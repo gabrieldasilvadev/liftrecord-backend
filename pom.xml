@@ -63,6 +63,21 @@
 				<artifactId>common-domain</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>br.com.liftrecord</groupId>
+				<artifactId>common-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.liftrecord</groupId>
+				<artifactId>common-logging</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.liftrecord</groupId>
+				<artifactId>common-infraestructure</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -109,6 +124,10 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.34</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 	</dependencies>
 

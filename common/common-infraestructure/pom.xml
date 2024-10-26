@@ -7,7 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-application</artifactId>
+    <artifactId>common-infraestructure</artifactId>
+    <packaging>jar</packaging>
+
+    <name>common-infraestructure</name>
 
     <dependencies>
         <dependency>
@@ -17,12 +20,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-domain</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
     </dependencies>
 </project>
