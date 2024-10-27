@@ -1,6 +1,7 @@
-package br.com.liftrecord.student;
+package br.com.liftrecord.student.register;
 
 import br.com.liftrecord.command.Command;
+import br.com.liftrecord.student.Student;
 
 public class RegisterStudentCommand implements Command {
   private String name;

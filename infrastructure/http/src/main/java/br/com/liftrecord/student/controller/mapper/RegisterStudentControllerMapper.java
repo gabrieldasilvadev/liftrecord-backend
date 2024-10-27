@@ -3,7 +3,7 @@ package br.com.liftrecord.student.controller.mapper;
 
 import br.com.liftrecord.openapi.model.RegisterStudentRequest;
 import br.com.liftrecord.openapi.model.RegisterStudentResponse;
-import br.com.liftrecord.student.RegisterStudentCommand;
+import br.com.liftrecord.student.register.RegisterStudentCommand;
 import br.com.liftrecord.student.Student;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

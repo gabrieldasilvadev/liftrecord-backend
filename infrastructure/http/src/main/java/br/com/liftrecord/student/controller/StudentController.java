@@ -1,5 +1,6 @@
 package br.com.liftrecord.student.controller;
 
+import br.com.liftrecord.LogException;
 import br.com.liftrecord.mediator.Mediator;
 import br.com.liftrecord.openapi.api.StudentApi;
 import br.com.liftrecord.openapi.model.RegisterStudentRequest;
@@ -24,6 +25,7 @@ public class StudentController implements StudentApi {
   }
 
   @Override
+  @LogException
   public ResponseEntity<RegisterStudentResponse> postStudents(RegisterStudentRequest registerStudentRequest) {
     RegisterStudentControllerMapper mapper = RegisterStudentControllerMapper.INSTANCE;
     return ResponseEntity
