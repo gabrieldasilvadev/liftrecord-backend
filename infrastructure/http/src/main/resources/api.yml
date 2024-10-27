@@ -39,6 +39,7 @@ paths:
                 type: string
       tags:
         - student
+      description: ''
 components:
   schemas:
     RegisterStudentRequest:
@@ -94,3 +95,18 @@ components:
           type: string
         status:
           type: string
+    ErrorResponseDto:
+      title: ErrorResponseDto
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        uri:
+          type: string
+        additional_info:
+          type: object
+      required:
+        - status
+        - uri
