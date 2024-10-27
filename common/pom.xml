@@ -13,5 +13,6 @@
         <module>common-application</module>
         <module>common-logging</module>
         <module>common-infraestructure</module>
+        <module>common-web-exception</module>
     </modules>
 </project>

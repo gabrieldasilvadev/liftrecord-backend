@@ -29,6 +29,7 @@
             <artifactId>command</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -105,6 +106,7 @@
                                 <skipDefaultInterface>true</skipDefaultInterface>
                                 <serializableModel>true</serializableModel>
                                 <useSwaggerUI>true</useSwaggerUI>
+                                <generateBuilders>true</generateBuilders>
                             </configOptions>
                         </configuration>
                     </execution>
