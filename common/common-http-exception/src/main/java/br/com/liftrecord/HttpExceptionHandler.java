@@ -10,7 +10,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class WebExceptionHandler {
+public class HttpExceptionHandler {
+
+  @ExceptionHandler(RuntimeException.class)
+  public ResponseEntity<ErrorResponseDto> handleException(Exception ex, HttpServletRequest request) {
+    ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+        .message(ex.getMessage())
+        .status(HttpStatus.INTERNAL_SERVER_ERROR.name())
+        .uri(request.getRequestURI())
+        .build();
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+  }
 
   @ExceptionHandler(value = {
       IllegalArgumentException.class,
@@ -20,7 +30,6 @@ public class WebExceptionHandler {
         .message(ex.getMessage())
         .status(HttpStatus.BAD_REQUEST.name())
         .uri(request.getRequestURI())
-        .additionalInfo(null)
         .build();
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
   }
@@ -29,7 +38,7 @@ public class WebExceptionHandler {
   @ExceptionHandler(RegisterStudentValidationException.class)
   public ResponseEntity<ErrorResponseDto> handleBadRequestException(RegisterStudentValidationException ex, HttpServletRequest request) {
     ErrorResponseDto errorResponse = ErrorResponseDto.builder()
-        .additionalInfo(ex.getValidationResult().getErrors())
+        .message(ex.getMessage())
         .status(HttpStatus.BAD_REQUEST.name())
         .uri(request.getRequestURI())
         .build();

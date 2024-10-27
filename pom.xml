@@ -80,7 +80,7 @@
 			</dependency>
 			<dependency>
 				<groupId>br.com.liftrecord</groupId>
-				<artifactId>common-web-exception</artifactId>
+				<artifactId>common-http-exception</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 		</dependencies>

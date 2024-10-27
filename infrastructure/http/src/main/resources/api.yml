@@ -105,8 +105,7 @@ components:
           type: string
         uri:
           type: string
-        additional_info:
-          type: object
       required:
+        - message
         - status
         - uri
