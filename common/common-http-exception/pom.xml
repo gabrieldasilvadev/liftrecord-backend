@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-web-exception</artifactId>
+    <artifactId>common-http-exception</artifactId>
     <packaging>jar</packaging>
 
     <name>common-web-exception</name>
