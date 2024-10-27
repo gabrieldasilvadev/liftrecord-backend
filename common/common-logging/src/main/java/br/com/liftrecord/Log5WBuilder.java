@@ -12,10 +12,12 @@ public class Log5WBuilder {
     private Map<String, String> params = new LinkedHashMap<>();
 
     public beLogging(String method,
+                     String logCode,
                      String whatHappen,
                      Map<String, String> infos) {
 
       params.put("method", method);
+      params.put("logCode", logCode);
       params.put("whatHappen", whatHappen);
 
       params.putAll(infos);
@@ -65,12 +67,14 @@ public class Log5WBuilder {
   public static class WhatHappen {
 
     private String method;
+    private String logCode;
     private String whatHappen;
     private Map<String, String> infos = new LinkedHashMap<>();
 
-    public WhatHappen(String method, String whatHappen) {
+    public WhatHappen(String method, String logCode, String whatHappen) {
       this.method = method;
       this.whatHappen = whatHappen;
+      this.logCode = logCode;
     }
 
     public beLogging addInfo(String key, String info) {
@@ -79,7 +83,7 @@ public class Log5WBuilder {
       Assert.isNull(infos.get(key), "key already exists");
 
       infos.put(key, info);
-      return new beLogging(method, whatHappen, infos);
+      return new beLogging(method, logCode, whatHappen, infos);
     }
   }
 
@@ -92,9 +96,27 @@ public class Log5WBuilder {
       this.method = method;
     }
 
+    public LogCode logCode(String logCode) {
+      Assert.hasText(logCode, "logCode must not be blank");
+      return new LogCode(method, logCode);
+    }
+  }
+
+  public static class LogCode {
+
+    private String method;
+    private String logCode;
+
+    public LogCode(String method, String logCode) {
+      Assert.hasText(method, "method must not be blank");
+      Assert.hasText(logCode, "logCode must not be blank");
+      this.method = method;
+      this.logCode = logCode;
+    }
+
     public WhatHappen whatHappen(String whatHappen) {
       Assert.hasText(whatHappen, "whatHappen must not be blank");
-      return new WhatHappen(method, whatHappen);
+      return new WhatHappen(method, logCode, whatHappen);
     }
   }
 
