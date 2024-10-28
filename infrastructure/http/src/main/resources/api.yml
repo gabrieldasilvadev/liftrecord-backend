@@ -95,8 +95,8 @@ components:
           type: string
         status:
           type: string
-    ErrorResponseDto:
-      title: ErrorResponseDto
+    ErrorResponse:
+      title: ErrorResponse
       type: object
       properties:
         message:

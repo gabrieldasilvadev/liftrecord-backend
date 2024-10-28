@@ -23,7 +23,7 @@ public class RegisterStudentValidator extends AbstractValidator<RegisterStudentC
         .critical();
 
     ruleFor(RegisterStudentCommand::getEmail)
-        .must(PredicateBuilder.<String>from(email -> email != null && pattern.matcher(email).matches()))  // Valida com regex
+        .must(PredicateBuilder.<String>from(email -> email != null && pattern.matcher(email).matches()))
         .withCode("EMAIL_PATTERN_INVALID")
         .withMessage("Email pattern is invalid")
         .withFieldName("email")

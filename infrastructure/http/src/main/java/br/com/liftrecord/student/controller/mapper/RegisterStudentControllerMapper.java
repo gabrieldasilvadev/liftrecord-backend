@@ -1,8 +1,8 @@
 
 package br.com.liftrecord.student.controller.mapper;
 
-import br.com.liftrecord.openapi.model.RegisterStudentRequest;
-import br.com.liftrecord.openapi.model.RegisterStudentResponse;
+import br.com.liftrecord.openapi.model.RegisterStudentRequestDto;
+import br.com.liftrecord.openapi.model.RegisterStudentResponseDto;
 import br.com.liftrecord.student.register.RegisterStudentCommand;
 import br.com.liftrecord.student.Student;
 import org.mapstruct.Mapper;
@@ -12,23 +12,23 @@ import org.mapstruct.factory.Mappers;
 public interface RegisterStudentControllerMapper {
   RegisterStudentControllerMapper INSTANCE = Mappers.getMapper(RegisterStudentControllerMapper.class);
 
-  default RegisterStudentCommand toCommand(RegisterStudentRequest registerStudentRequest) {
-    return new RegisterStudentCommand(
-        registerStudentRequest.getName(),
-        registerStudentRequest.getEmail(),
-        registerStudentRequest.getCellphone(),
-        registerStudentRequest.getAddress().getState(),
-        registerStudentRequest.getAddress().getCity(),
-        registerStudentRequest.getAddress().getNeighborhood(),
-        registerStudentRequest.getAddress().getStreet(),
-        registerStudentRequest.getAddress().getNumber(),
-        registerStudentRequest.getAddress().getComplement(),
-        registerStudentRequest.getAddress().getZipCode()
-    );
+  default RegisterStudentCommand toCommand(RegisterStudentRequestDto registerStudentRequestDto) {
+    return RegisterStudentCommand.builder()
+        .name(registerStudentRequestDto.getName())
+        .email(registerStudentRequestDto.getEmail())
+        .cellphone(registerStudentRequestDto.getCellphone())
+        .state(registerStudentRequestDto.getAddress().getState())
+        .city(registerStudentRequestDto.getAddress().getCity())
+        .neighborhood(registerStudentRequestDto.getAddress().getNeighborhood())
+        .street(registerStudentRequestDto.getAddress().getStreet())
+        .number(registerStudentRequestDto.getAddress().getNumber())
+        .complement(registerStudentRequestDto.getAddress().getComplement())
+        .zipCode(registerStudentRequestDto.getAddress().getZipCode())
+        .build();
   }
 
-  default RegisterStudentResponse toResponse(Student student) {
-    return new RegisterStudentResponse()
+  default RegisterStudentResponseDto toResponse(Student student) {
+    return new RegisterStudentResponseDto()
         .name(student.getName())
         .email(student.getContact().getEmail().getValue())
         .cellphone(student.getContact().getCellphone().getFullNumber())
