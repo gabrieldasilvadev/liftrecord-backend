@@ -6,6 +6,7 @@ import br.com.liftrecord.openapi.api.StudentApi;
 import br.com.liftrecord.openapi.model.RegisterStudentRequestDto;
 import br.com.liftrecord.openapi.model.RegisterStudentResponseDto;
 import br.com.liftrecord.student.controller.mapper.RegisterStudentControllerMapper;
+import br.com.liftrecord.student.remove.RemoveStudentCommand;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,16 +21,16 @@ public class StudentController implements StudentApi {
   }
 
   @Override
-  public ResponseEntity<String> getHello() {
-    return ResponseEntity.ok("Hello World!");
+  public ResponseEntity<Void> deleteStudentsStudentId(String studentId) {
+    mediator.execute(new RemoveStudentCommand(studentId));
+    return ResponseEntity.noContent().build();
   }
 
   @Override
   @LogException
   public ResponseEntity<RegisterStudentResponseDto> postStudents(RegisterStudentRequestDto registerStudentRequest) {
-    RegisterStudentControllerMapper mapper = RegisterStudentControllerMapper.INSTANCE;
     return ResponseEntity
         .status(HttpStatus.CREATED)
-        .body(mapper.toResponse(mediator.execute(mapper.toCommand(registerStudentRequest))));
+        .body(RegisterStudentControllerMapper.toResponse(mediator.execute(RegisterStudentControllerMapper.toCommand(registerStudentRequest))));
   }
 }

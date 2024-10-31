@@ -1,6 +1,7 @@
 package br.com.liftrecord.mappers;
 
 import br.com.liftrecord.student.Student;
+import br.com.liftrecord.tables.AccountTable;
 import br.com.liftrecord.tables.StudentTable;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -13,11 +14,7 @@ public interface StudentTableMapper {
   default StudentTable toTable(Student student) {
     return StudentTable.builder()
         .id(student.getId().getValue())
-        .name(student.getName())
-        .email(student.getContact().getEmail().getValue())
-        .cellphone(student.getContact().getCellphone().getFullNumber())
-        .address(AddressTableMapper.INSTANCE.toTable(student.getAddress()))
-        .status(student.getStatus())
+        .account(new AccountTable(student.getAccount()))
         .build();
   }
 }
