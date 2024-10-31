@@ -54,24 +54,7 @@ public record RegisterStudentCommand(
         zipCode);
   }
 
-
   public Account toAccount() {
     return new Account(name, email, cellphone);
-  }
-
-  @Override
-  public String toString() {
-    return "RegisterStudentCommand{" +
-        "name='" + name + '\'' +
-        ", email='" + email + '\'' +
-        ", cellphone='" + cellphone + '\'' +
-        ", state='" + state + '\'' +
-        ", city='" + city + '\'' +
-        ", neighborhood='" + neighborhood + '\'' +
-        ", street='" + street + '\'' +
-        ", number='" + number + '\'' +
-        ", complement='" + complement + '\'' +
-        ", zipCode='" + zipCode + '\'' +
-        '}';
   }
 }
