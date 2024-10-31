@@ -1,4 +1,4 @@
-package br.com.liftrecord.student.valueobjects;
+package br.com.liftrecord.account.valueobjects;
 
 public class Cellphone {
   final String ddd;
@@ -16,5 +16,12 @@ public class Cellphone {
 
   public String getFullNumber() {
     return ddd + number;
+  }
+
+  @Override
+  public String toString() {
+    return "Cellphone{" +
+        "number='" + getFullNumber() + '\'' +
+        '}';
   }
 }

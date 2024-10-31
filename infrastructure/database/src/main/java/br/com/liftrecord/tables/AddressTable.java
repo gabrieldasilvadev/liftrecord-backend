@@ -30,5 +30,5 @@ public class AddressTable {
   @Column(name = "zip_code")
   private String zipCode;
   @OneToOne(mappedBy = "address")
-  private StudentTable student;
+  private AccountTable student;
 }
