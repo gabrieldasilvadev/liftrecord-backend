@@ -15,7 +15,7 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        ddl-auto: none
+        ddl-auto: validate
         generate_statistics: false
         format_sql: false
   datasource:
