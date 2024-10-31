@@ -5,7 +5,7 @@ info:
 servers:
   - url: 'http://localhost:7000'
 paths:
-  /students/:
+  /api/v1/students:
     parameters: []
     post:
       summary: Register new student
@@ -26,20 +26,22 @@ paths:
         description: Corpo da requisicao para cadastrar um novo estudante
       tags:
         - student
-  /hello/:
-    get:
-      summary: ''
-      operationId: get-hello
+  '/api/v1/students/{student_id}/':
+    parameters:
+      - schema:
+          type: string
+        name: student_id
+        in: path
+        required: true
+    delete:
+      summary: Delete a student
+      operationId: delete-students-studentId
       responses:
-        '200':
-          description: OK
-          content:
-            text/plain:
-              schema:
-                type: string
+        '204':
+          description: No Content
+      description: ''
       tags:
         - student
-      description: ''
 components:
   schemas:
     RegisterStudentRequest:
