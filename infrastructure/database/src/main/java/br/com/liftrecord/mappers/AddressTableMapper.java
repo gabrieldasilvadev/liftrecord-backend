@@ -13,13 +13,13 @@ public interface AddressTableMapper {
   default AddressTable toTable(Address address) {
     return AddressTable.builder()
         .id(new ULID().nextULID())
-        .street(address.getStreet())
-        .number(address.getNumber())
-        .neighborhood(address.getNeighborhood())
-        .complement(address.getComplement())
-        .city(address.getCity())
-        .state(address.getState())
-        .zipCode(address.getZipCode())
+        .street(address.street())
+        .number(address.number())
+        .neighborhood(address.neighborhood())
+        .complement(address.complement())
+        .city(address.city())
+        .state(address.state())
+        .zipCode(address.zipCode())
         .build();
   }
 }
