@@ -1,16 +1,14 @@
 package br.com.liftrecord.core;
 
 import java.util.Objects;
+import lombok.Getter;
 
-public class Identifier<T> extends ValueObject {
+@Getter
+public abstract class Identifier<T> extends ValueObject {
   private final T value;
 
   public Identifier(T value) {
     this.value = value;
-  }
-
-  public T getValue() {
-    return value;
   }
 
   @Override

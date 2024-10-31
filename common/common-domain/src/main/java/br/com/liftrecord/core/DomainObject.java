@@ -2,17 +2,17 @@ package br.com.liftrecord.core;
 
 import java.io.Serializable;
 import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class DomainObject<I> implements Serializable {
   private I id;
-
-  public I getId() {
-    return id;
-  }
-
-  public void setId(I id) {
-    this.id = id;
-  }
 
   @Override
   public boolean equals(Object o) {
