@@ -1,6 +1,5 @@
 package br.com.liftrecord.adapters;
 
-import br.com.liftrecord.mappers.StudentTableMapper;
 import br.com.liftrecord.ports.student.SaveStudentOutputPort;
 import br.com.liftrecord.repositories.StudentRepository;
 import br.com.liftrecord.student.Student;
@@ -20,7 +19,7 @@ public class SaveStudentAdapter implements SaveStudentOutputPort {
 
   @Override
   public @NonNull Student save(@NonFinal Student student) {
-    StudentTable table = StudentTableMapper.INSTANCE.toTable(student);
+    StudentTable table = new StudentTable().fromDomain(student);
     repository.save(table);
     return student;
   }

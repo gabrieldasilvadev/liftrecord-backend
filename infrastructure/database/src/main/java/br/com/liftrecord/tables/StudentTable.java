@@ -1,5 +1,6 @@
 package br.com.liftrecord.tables;
 
+import br.com.liftrecord.student.Student;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,4 +33,11 @@ public class StudentTable {
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "account_id", referencedColumnName = "id")
   private AccountTable account;
+
+  public StudentTable fromDomain(Student student) {
+    return StudentTable.builder()
+        .id(student.getId().getValue())
+        .account(new AccountTable(student.getAccount()))
+        .build();
+  }
 }

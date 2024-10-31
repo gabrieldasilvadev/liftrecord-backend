@@ -1,5 +1,7 @@
 package br.com.liftrecord.tables;
 
+import br.com.liftrecord.student.valueobjects.Address;
+import de.huxhorn.sulky.ulid.ULID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -31,4 +33,17 @@ public class AddressTable {
   private String zipCode;
   @OneToOne(mappedBy = "address")
   private AccountTable student;
+
+  public AddressTable fromDomain(Address address) {
+    return AddressTable.builder()
+        .id(new ULID().nextULID())
+        .street(address.street())
+        .number(address.number())
+        .neighborhood(address.neighborhood())
+        .complement(address.complement())
+        .city(address.city())
+        .state(address.state())
+        .zipCode(address.zipCode())
+        .build();
+  }
 }
