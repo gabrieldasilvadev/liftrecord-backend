@@ -107,6 +107,16 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>10.15.2</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/liftrecord</url>
+                    <user>liftrecord</user>
+                    <password>liftrecord</password>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
