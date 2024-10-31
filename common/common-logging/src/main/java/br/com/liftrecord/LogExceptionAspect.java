@@ -28,7 +28,8 @@ public class LogExceptionAspect {
           .whatHappen("Exception occurred during method execution")
           .addInfo("method", joinPoint.getSignature().toShortString())
           .addInfo("arguments", objectMapper.writeValueAsString(joinPoint.getArgs()))
-          .error(logger);
+          .addInfo("exception_message", ex.getMessage())
+          .error(logger, ex);
       throw ex;
     }
     return result;
