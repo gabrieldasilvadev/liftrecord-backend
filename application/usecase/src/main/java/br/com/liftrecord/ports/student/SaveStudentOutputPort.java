@@ -1,4 +1,4 @@
-package br.com.liftrecord.ports;
+package br.com.liftrecord.ports.student;
 
 import br.com.liftrecord.student.Student;
 

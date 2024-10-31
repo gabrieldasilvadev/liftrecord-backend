@@ -24,7 +24,7 @@ public class RegisterStudentComponentTest extends BaseComponentTest {
         .body(jsonRequest)
         .contentType(ContentType.JSON)
         .when()
-        .post("/students/")
+        .post("/api/v1/students")
         .then()
         .statusCode(HttpStatus.SC_CREATED)
         .body("name", equalTo("name_bbaa851b2153"))
@@ -42,7 +42,7 @@ public class RegisterStudentComponentTest extends BaseComponentTest {
         .body(jsonRequest)
         .contentType(ContentType.JSON)
         .when()
-        .post("/students/")
+        .post("/api/v1/students")
         .then()
         .statusCode(HttpStatus.SC_BAD_REQUEST)
         .body("message", containsStringIgnoringCase("Email pattern is invalid"));
