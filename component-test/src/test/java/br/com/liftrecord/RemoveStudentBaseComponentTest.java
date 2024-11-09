@@ -10,6 +10,5 @@ public class RemoveStudentBaseComponentTest extends BaseComponentTest {
   @Test
   @DisplayName("Given a valid request, When DELETE /students/{id}, Then return status 204 (No Content) Student removed")
   void testRemoveStudentStatusNoContent() {
-
   }
 }

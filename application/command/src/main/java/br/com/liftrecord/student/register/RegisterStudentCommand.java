@@ -1,8 +1,10 @@
 package br.com.liftrecord.student.register;
 
 import br.com.liftrecord.account.Account;
+import br.com.liftrecord.account.valueobjects.Contact;
 import br.com.liftrecord.command.Command;
 import br.com.liftrecord.student.Student;
+import br.com.liftrecord.student.valueobjects.Address;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -40,21 +42,15 @@ public record RegisterStudentCommand(
   @Serial
   private static final long serialVersionUID = -8959707614555490587L;
 
-
   public Student toStudent() {
-    return new Student(name,
-        email,
-        cellphone,
-        state,
-        city,
-        neighborhood,
-        street,
-        number,
-        complement,
-        zipCode);
+    return Student.builder()
+        .name(name)
+        .contact(new Contact(email, cellphone))
+        .bodyMetrics(null)
+        .build();
   }
 
   public Account toAccount() {
-    return new Account(name, email, cellphone);
+    return new Account(name, email, cellphone, new Address(state, city, neighborhood, street, number, complement, zipCode));
   }
 }

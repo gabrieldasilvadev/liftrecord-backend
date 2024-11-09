@@ -12,6 +12,10 @@ public class Email {
     domain = value.split("@")[1];
   }
 
+  public static Object fromString(String email) {
+    return new Email(email);
+  }
+
   @Override
   public String toString() {
     return "Email{" +

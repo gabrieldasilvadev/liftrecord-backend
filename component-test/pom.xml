@@ -22,47 +22,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>command</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>usecase</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>http</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>database</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-application</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-http-exception</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${rest-assured.version}</version>

@@ -6,7 +6,7 @@ import br.com.liftrecord.openapi.api.StudentApi;
 import br.com.liftrecord.openapi.model.RegisterStudentRequestDto;
 import br.com.liftrecord.openapi.model.RegisterStudentResponseDto;
 import br.com.liftrecord.student.controller.mapper.RegisterStudentControllerMapper;
-import br.com.liftrecord.student.remove.RemoveStudentCommand;
+import br.com.liftrecord.student.inactive.InactiveStudentCommand;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class StudentController implements StudentApi {
 
   @Override
   public ResponseEntity<Void> deleteStudentsStudentId(String studentId) {
-    mediator.execute(new RemoveStudentCommand(studentId));
+    mediator.execute(new InactiveStudentCommand(studentId));
     return ResponseEntity.noContent().build();
   }
 

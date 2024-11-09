@@ -1,5 +1,6 @@
 package br.com.liftrecord.tables;
 
+import br.com.liftrecord.student.valueobjects.BodyMetrics;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -40,4 +41,19 @@ public class BodyMetricsTable {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "student_id", nullable = false)
   private StudentTable student;
+
+  public BodyMetrics toDomain() {
+    return new BodyMetrics(
+        this.weight,
+        this.height,
+        this.waistCircumference,
+        this.abdomenCircumference,
+        this.chestCircumference,
+        this.armCircumference,
+        this.thighCircumference,
+        this.hipsCircumference,
+        this.bmi,
+        this.basalMetabolicRate
+    );
+  }
 }

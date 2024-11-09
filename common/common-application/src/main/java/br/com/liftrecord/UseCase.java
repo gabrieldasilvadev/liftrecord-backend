@@ -1,7 +1,5 @@
 package br.com.liftrecord;
 
-import br.com.liftrecord.core.DomainObject;
-
-public interface UseCase<I, O extends DomainObject> {
+public interface UseCase<I, O> {
   O execute(I input);
 }

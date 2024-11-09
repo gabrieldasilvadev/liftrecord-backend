@@ -8,37 +8,19 @@ import br.com.liftrecord.account.valueobjects.Contact;
 import br.com.liftrecord.student.valueobjects.StudentId;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
+import java.util.List;
 import java.util.Objects;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class Student extends DomainObject<StudentId> implements Visitable<Student> {
-  private String name;
-  private Contact contact;
-  private Address address;
+  private final String name;
+  private final Contact contact;
   private Account account;
-  private BodyMetrics bodyMetrics;
+  private final List<BodyMetrics> bodyMetrics;
 
-
-  public Student(String name,
-                 String email,
-                 String cellphone,
-                 String state,
-                 String city,
-                 String neighborhood,
-                 String street,
-                 String number,
-                 String complement,
-                 String zipCode) {
-    this.name = Objects.requireNonNull(name, "Name cannot be null");
-    this.contact = new Contact(email,cellphone);
-    this.address = new Address(state, city, neighborhood, street, number, complement, zipCode);
-    this.bodyMetrics = null;
-    this.account = null;
-  }
-
-  public Student() {
-  }
 
   @Override
   public void accept(Visitor<Student, ?> visitor) {
@@ -53,9 +35,18 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
     Objects.requireNonNull(account, "Account cannot be null");
 
     if (!Objects.isNull(this.account)) {
+      // TODO: throw an domain exception
       throw new IllegalStateException("Student already has an account");
     }
 
     this.account = account;
+  }
+
+  public void inactivateAccount() {
+    if (Objects.isNull(this.account)) {
+      // TODO: throw an domain exception
+      throw new IllegalStateException("Student does not have an account");
+    }
+    this.account.inactivate();
   }
 }

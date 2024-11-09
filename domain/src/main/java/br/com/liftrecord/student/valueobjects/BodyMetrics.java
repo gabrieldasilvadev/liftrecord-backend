@@ -1,5 +1,8 @@
 package br.com.liftrecord.student.valueobjects;
 
+import lombok.Builder;
+
+@Builder
 public class BodyMetrics {
   final Double weight;
   final Double height;

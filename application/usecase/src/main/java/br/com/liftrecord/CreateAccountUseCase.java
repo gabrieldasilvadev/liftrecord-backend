@@ -1,7 +1,8 @@
 package br.com.liftrecord;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.ports.account.SaveAccountOutputPort;
+import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
 import org.springframework.stereotype.Service;
@@ -10,11 +11,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CreateAccountUseCase implements UseCase<Account, Account>{
 
-  private final SaveAccountOutputPort saveAccountOutputPort;
+  private final AccountRepositoryOutputPort accountRepositoryOutputPort;
 
   @Override
-  public Account execute(@NonFinal Account input) {
+  public @NonNull Account execute(@NonFinal Account input) {
     input.createAccount();
-    return saveAccountOutputPort.save(input);
+    return accountRepositoryOutputPort.save(input);
   }
 }

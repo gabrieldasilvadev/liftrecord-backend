@@ -14,6 +14,10 @@ public class Cellphone {
     number = fullNumber.substring(2);
   }
 
+  public static Cellphone fromFullNumberString(String cellphone) {
+    return new Cellphone(cellphone);
+  }
+
   public String getFullNumber() {
     return ddd + number;
   }

@@ -4,6 +4,7 @@ import br.com.liftrecord.account.valueobjects.Password;
 import br.com.liftrecord.core.DomainObject;
 import br.com.liftrecord.student.AccountStatus;
 import br.com.liftrecord.account.valueobjects.Contact;
+import br.com.liftrecord.student.valueobjects.Address;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import jakarta.annotation.Nullable;
@@ -21,7 +22,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   @Nullable
   private final Password password;
 
-  public Account(String name, String email, String cellphone) {
+  public Account(String name, String email, String cellphone, Address address) {
     this.name = name;
     this.contact = new Contact(email, cellphone);
     this.password = null;
@@ -64,5 +65,9 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
         ", contact=" + contact +
         ", password=" + password +
         "} " + super.toString();
+  }
+
+  public void inactivate() {
+    this.status = AccountStatus.INACTIVE;
   }
 }

@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Comparator;
 import java.util.stream.Stream;
 import javax.sql.DataSource;
 import org.junit.jupiter.api.AfterAll;
@@ -83,6 +84,7 @@ public abstract class BaseComponentTest {
 
       paths.filter(Files::isRegularFile)
           .filter(path -> path.toString().endsWith(".sql"))
+          .sorted(Comparator.comparing(path -> path.getFileName().toString()))
           .forEach(path -> {
             try {
               String sql = new String(Files.readAllBytes(path));
