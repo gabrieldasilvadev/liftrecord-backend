@@ -35,6 +35,19 @@ paths:
           description: Created
       tags:
         - student
+  '/api/v1/accounts/{account_id}':
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
+    delete:
+      summary: ''
+      operationId: delete-api-v1-accounts-account_id
+      responses:
+        '204':
+          description: No Content
 components:
   schemas:
     RegisterAccountRequest:
@@ -94,6 +107,8 @@ components:
       title: RegisterAccountResponse
       type: object
       properties:
+        account_id:
+          type: string
         name:
           type: string
         email:
