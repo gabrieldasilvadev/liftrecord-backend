@@ -1,7 +1,7 @@
 package br.com.liftrecord;
 
+import br.com.liftrecord.exception.ObjectStateException;
 import br.com.liftrecord.openapi.model.ErrorResponseDto;
-import br.com.liftrecord.student.register.validator.RegisterStudentValidationException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,19 +24,9 @@ public class HttpExceptionHandler {
 
   @ExceptionHandler(value = {
       IllegalArgumentException.class,
-      MethodArgumentNotValidException.class})
+      MethodArgumentNotValidException.class,
+      ObjectStateException.class})
   public ResponseEntity<ErrorResponseDto> handleBadRequestException(Exception ex, HttpServletRequest request) {
-    ErrorResponseDto errorResponse = ErrorResponseDto.builder()
-        .message(ex.getMessage())
-        .status(HttpStatus.BAD_REQUEST.name())
-        .uri(request.getRequestURI())
-        .build();
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
-  }
-
-
-  @ExceptionHandler(RegisterStudentValidationException.class)
-  public ResponseEntity<ErrorResponseDto> handleBadRequestException(RegisterStudentValidationException ex, HttpServletRequest request) {
     ErrorResponseDto errorResponse = ErrorResponseDto.builder()
         .message(ex.getMessage())
         .status(HttpStatus.BAD_REQUEST.name())
