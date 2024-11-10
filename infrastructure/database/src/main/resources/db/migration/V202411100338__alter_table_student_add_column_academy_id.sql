@@ -1,0 +1,2 @@
+ALTER TABLE student
+ADD COLUMN academy_id VARCHAR(26) UNIQUE;
