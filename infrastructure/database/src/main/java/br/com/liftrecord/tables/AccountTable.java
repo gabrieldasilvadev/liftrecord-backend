@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AccountTable {
   @Id
   private String id;
@@ -45,14 +47,17 @@ public class AccountTable {
   private AddressTable address;
   private LocalDate birthDate;
 
-  public AccountTable(Account account) {
-    this.id = account.getId().getValue();
-    this.name = account.getName();
-    this.email = Objects.requireNonNull(account.getContact().getEmail()).getValue();
-    this.cellphone = Objects.requireNonNull(account.getContact().getCellphone()).getFullNumber();
-    this.password = Objects.requireNonNull(account.getPassword()).orElse(null);
-    this.status = account.getStatus();
-    this.birthDate = account.getBirthDate();
+  public static AccountTable fromDomain(Account account) {
+    return AccountTable.builder()
+        .id(account.getId().getValue())
+        .name(account.getName())
+        .email(Objects.requireNonNull(account.getContact().getEmail()).getValue())
+        .cellphone(Objects.requireNonNull(account.getContact().getCellphone()).getFullNumber())
+        .password(Objects.requireNonNull(account.getPassword()).orElse(null))
+        .status(account.getStatus())
+        .birthDate(account.getBirthDate())
+        .address(AddressTable.fromDomain(account.getAddress()))
+        .build();
   }
 
   public Account toDomain() {

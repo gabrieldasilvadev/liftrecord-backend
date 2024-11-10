@@ -23,11 +23,13 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   @Nullable
   private final Password password;
   private final LocalDate birthDate;
+  private Address address;
 
   public Account(String name, String email, String cellphone, LocalDate birthDate, Address address) {
     this.name = name;
     this.contact = new Contact(email, cellphone);
     this.birthDate  = birthDate;
+    this.address = address;
     this.password = null;
     this.status = null;
   }

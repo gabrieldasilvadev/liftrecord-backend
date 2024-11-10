@@ -42,7 +42,9 @@ public class StudentTable {
   public StudentTable fromDomain(Student student) {
     return StudentTable.builder()
         .id(student.getId().getValue())
-        .account(new AccountTable(student.getAccount()))
+        .account(AccountTable.fromDomain(student.getAccount()))
+        .academy(null)
+        .bodyMetrics(null)
         .build();
   }
 

@@ -36,7 +36,7 @@ public class AddressTable {
   @OneToOne(mappedBy = "address")
   private AcademyTable academy;
 
-  public AddressTable fromDomain(Address address) {
+  public static AddressTable fromDomain(Address address) {
     return AddressTable.builder()
         .id(new ULID().nextULID())
         .street(address.street())

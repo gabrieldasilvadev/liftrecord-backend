@@ -19,7 +19,7 @@ public class AccountRepositoryAdapter implements AccountRepositoryOutputPort {
 
   @Override
   public @NonNull Account save(@NonFinal Account account) {
-    return accountRepository.save(new AccountTable(account)).toDomain();
+    return accountRepository.save(AccountTable.fromDomain(account)).toDomain();
   }
 
   @Override
