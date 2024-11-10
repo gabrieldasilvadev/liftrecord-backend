@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class InactiveAccountUseCase implements UseCase<String, Void> {
+public class InactiveAccountUseCase implements UseCase<String, Student> {
 
   private final StudentRepositoryOutputPort studentRepository;
   private final AccountRepositoryOutputPort accountRepository;
 //  private final InactiveAccountOutputPort inactiveAccountOutputPort;
 
   @Override
-  public Void execute(String input) {
+  public Student execute(String input) {
     Student student = studentRepository.findById(input).orElseThrow(() -> new IllegalArgumentException("Student not found"));
     student.inactivateAccount();
     accountRepository.save(student.getAccount());

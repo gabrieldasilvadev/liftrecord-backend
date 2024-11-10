@@ -2,19 +2,24 @@ package br.com.liftrecord.student.inactive;
 
 import br.com.liftrecord.InactiveAccountUseCase;
 import br.com.liftrecord.command.CommandHandler;
+import br.com.liftrecord.exception.ObjectStateException;
+import br.com.liftrecord.student.Student;
+import br.com.liftrecord.student.inactive.validator.InactiveStudentValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class InactiveStudentCommandHandler implements CommandHandler<InactiveStudentCommand, Void> {
+public class InactiveStudentCommandHandler implements CommandHandler<InactiveStudentCommand, Student> {
 
   private final InactiveAccountUseCase inactiveAccountUseCase;
-
+  private final InactiveStudentValidator inactiveStudentValidator;
 
   @Override
-  public Void handle(InactiveStudentCommand command) {
-    return inactiveAccountUseCase.execute(command.studentId());
+  public Student handle(InactiveStudentCommand command) {
+    inactiveStudentValidator.validate(command).isInvalidThrow(ObjectStateException.class);
+    inactiveAccountUseCase.execute(command.studentId());
+    return null;
   }
 
   @Override

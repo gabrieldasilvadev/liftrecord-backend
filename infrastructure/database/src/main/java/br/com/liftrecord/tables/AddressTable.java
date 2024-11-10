@@ -33,6 +33,8 @@ public class AddressTable {
   private String zipCode;
   @OneToOne(mappedBy = "address")
   private AccountTable student;
+  @OneToOne(mappedBy = "address")
+  private AcademyTable academy;
 
   public AddressTable fromDomain(Address address) {
     return AddressTable.builder()

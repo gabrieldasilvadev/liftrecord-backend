@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Size;
 import java.io.Serial;
 import java.io.Serializable;
 
-public record RegisterStudentCommand(
+public record RegisterAccountCommand(
     @NotBlank
     String name,
     @Email
@@ -52,5 +52,21 @@ public record RegisterStudentCommand(
 
   public Account toAccount() {
     return new Account(name, email, cellphone, new Address(state, city, neighborhood, street, number, complement, zipCode));
+  }
+
+  @Override
+  public String toString() {
+    return "RegisterAccountCommand{" +
+        "name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", cellphone='" + cellphone + '\'' +
+        ", state='" + state + '\'' +
+        ", city='" + city + '\'' +
+        ", neighborhood='" + neighborhood + '\'' +
+        ", street='" + street + '\'' +
+        ", number='" + number + '\'' +
+        ", complement='" + complement + '\'' +
+        ", zipCode='" + zipCode + '\'' +
+        '}';
   }
 }

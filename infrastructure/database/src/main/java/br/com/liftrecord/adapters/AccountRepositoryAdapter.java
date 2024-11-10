@@ -1,6 +1,7 @@
 package br.com.liftrecord.adapters;
 
 import br.com.liftrecord.account.Account;
+import br.com.liftrecord.account.valueobjects.Email;
 import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
 import br.com.liftrecord.repositories.AccountRepository;
 import br.com.liftrecord.tables.AccountTable;
@@ -19,5 +20,10 @@ public class AccountRepositoryAdapter implements AccountRepositoryOutputPort {
   @Override
   public @NonNull Account save(@NonFinal Account account) {
     return accountRepository.save(new AccountTable(account)).toDomain();
+  }
+
+  @Override
+  public Optional<Account> findByEmail(Email email) {
+    return accountRepository.findByEmail(email.getValue()).map(AccountTable::toDomain);
   }
 }
