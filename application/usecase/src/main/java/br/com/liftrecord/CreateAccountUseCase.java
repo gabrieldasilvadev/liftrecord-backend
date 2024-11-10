@@ -18,7 +18,7 @@ public class CreateAccountUseCase implements UseCase<Account, Account>{
   public @NonNull Account execute(@NonFinal Account input) {
 
     accountRepositoryOutputPort.findByEmail(input.getContact().getEmail()).ifPresent(account -> {
-      throw new AccountAlreadyExistsException("Account already exists");
+      throw new AccountAlreadyExistsException("Account already exists", account);
     });
 
     input.createAccount();

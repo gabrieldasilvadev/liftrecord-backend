@@ -8,9 +8,11 @@ import br.com.liftrecord.student.valueobjects.Address;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public record RegisterAccountCommand(
     @NotBlank
@@ -36,7 +38,11 @@ public record RegisterAccountCommand(
     String complement,
     @NotBlank
     @Size(min = 8, max = 9)
-    String zipCode
+    String zipCode,
+    @NotBlank
+    @Size(min = 10, max = 11)
+    @Past
+    LocalDate birthDate
 ) implements Command, Serializable {
 
   @Serial
@@ -51,7 +57,11 @@ public record RegisterAccountCommand(
   }
 
   public Account toAccount() {
-    return new Account(name, email, cellphone, new Address(state, city, neighborhood, street, number, complement, zipCode));
+    return new Account(name,
+        email,
+        cellphone,
+        birthDate,
+        new Address(state, city, neighborhood, street, number, complement, zipCode));
   }
 
   @Override

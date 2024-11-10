@@ -9,7 +9,7 @@ paths:
     parameters: []
     post:
       summary: Register new account
-      operationId: post-accounts
+      operationId: post-api-v1-accounts
       responses:
         '201':
           description: Created
@@ -26,20 +26,13 @@ paths:
         description: Corpo da requisicao para cadastrar uma nova conta
       tags:
         - account
-  '/api/v1/students/{student_id}/':
-    parameters:
-      - schema:
-          type: string
-        name: student_id
-        in: path
-        required: true
-    delete:
-      summary: Delete a student
-      operationId: delete-students-studentId
+  /api/v1/students:
+    post:
+      summary: ''
+      operationId: post-api-v1-students
       responses:
-        '204':
-          description: No Content
-      description: ''
+        '201':
+          description: Created
       tags:
         - student
 components:
@@ -54,6 +47,10 @@ components:
           type: string
         email:
           type: string
+          format: email
+        birth_date:
+          type: string
+          format: date
         address:
           $ref: '#/components/schemas/RegisterAddressRequest'
       required:
@@ -85,6 +82,14 @@ components:
         - neighborhood
         - number
         - zip_code
+    RegisterStudentRequest:
+      title: RegisterStudentRequest
+      type: object
+      properties:
+        cnpj:
+          type: string
+        account_email:
+          type: string
     RegisterAccountResponse:
       title: RegisterAccountResponse
       type: object
@@ -97,6 +102,9 @@ components:
           type: string
         status:
           type: string
+        birth_date:
+          type: string
+          format: date
     ErrorResponse:
       title: ErrorResponse
       type: object

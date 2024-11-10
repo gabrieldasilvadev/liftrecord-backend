@@ -3,6 +3,7 @@ package br.com.liftrecord.student.register.validator;
 import br.com.fluentvalidator.AbstractValidator;
 import br.com.fluentvalidator.predicate.PredicateBuilder;
 import br.com.liftrecord.student.register.RegisterAccountCommand;
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;
 
@@ -76,6 +77,12 @@ public class RegisterAccountValidator extends AbstractValidator<RegisterAccountC
         .withCode("STATE_INVALID_LENGTH")
         .withMessage("State length must be 2")
         .withFieldName("state")
+        .critical();
+    ruleFor(RegisterAccountCommand::birthDate)
+        .must(PredicateBuilder.from(date -> date.isBefore(LocalDate.now())))
+        .withCode("BIRTH_DATE_INVALID")
+        .withMessage("Birth date must be before today")
+        .withFieldName("birthDate")
         .critical();
   }
 }

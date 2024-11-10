@@ -18,15 +18,24 @@ public class RegisterAccountControllerMapper {
         registerAccountRequestDto.getAddress().getStreet(),
         registerAccountRequestDto.getAddress().getNumber(),
         registerAccountRequestDto.getAddress().getComplement(),
-        registerAccountRequestDto.getAddress().getZipCode()
+        registerAccountRequestDto.getAddress().getZipCode(),
+        registerAccountRequestDto.getBirthDate()
     );
   }
 
   public static RegisterAccountResponseDto toResponse(Account account) {
-    return new RegisterAccountResponseDto()
-        .name(account.getName())
-        .email(account.getContact().getEmail().getValue())
-        .cellphone(account.getContact().getCellphone().getFullNumber())
-        .status(account.getStatus().name());
+    try {
+      assert account.getContact().getEmail() != null;
+      assert account.getContact().getCellphone() != null;
+      assert account.getStatus() != null;
+      return new RegisterAccountResponseDto()
+          .name(account.getName())
+          .email(account.getContact().getEmail().getValue())
+          .cellphone(account.getContact().getCellphone().getFullNumber())
+          .birthDate(account.getBirthDate())
+          .status(account.getStatus().name());
+    } catch (NullPointerException e) {
+      return new RegisterAccountResponseDto();
+    }
   }
 }

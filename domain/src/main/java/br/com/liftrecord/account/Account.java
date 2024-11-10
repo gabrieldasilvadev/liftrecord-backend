@@ -8,6 +8,7 @@ import br.com.liftrecord.student.valueobjects.Address;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import jakarta.annotation.Nullable;
+import java.time.LocalDate;
 import java.util.Optional;
 import lombok.Getter;
 import org.apache.commons.lang3.ObjectUtils;
@@ -21,10 +22,12 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   private final Contact contact;
   @Nullable
   private final Password password;
+  private final LocalDate birthDate;
 
-  public Account(String name, String email, String cellphone, Address address) {
+  public Account(String name, String email, String cellphone, LocalDate birthDate, Address address) {
     this.name = name;
     this.contact = new Contact(email, cellphone);
+    this.birthDate  = birthDate;
     this.password = null;
     this.status = null;
   }
@@ -34,12 +37,14 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
                  String email,
                  String cellphone,
                  String password,
-                 AccountStatus status) {
+                 AccountStatus status,
+                 LocalDate birthDate) {
     super(AccountId.fromString(id));
     this.name = name;
     this.contact = new Contact(email, cellphone);
     this.password = new Password(password);
     this.status = status;
+    this.birthDate = birthDate;
   }
 
   public void createAccount() {

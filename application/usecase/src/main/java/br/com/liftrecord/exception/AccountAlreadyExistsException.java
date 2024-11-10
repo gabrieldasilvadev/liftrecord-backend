@@ -1,7 +1,13 @@
 package br.com.liftrecord.exception;
 
+import br.com.liftrecord.account.Account;
+import lombok.Getter;
+
+@Getter
 public class AccountAlreadyExistsException extends RuntimeException {
-  public AccountAlreadyExistsException(String message) {
+  private Account account;
+  public AccountAlreadyExistsException(String message, Account account) {
     super(message);
+    this.account = account;
   }
 }

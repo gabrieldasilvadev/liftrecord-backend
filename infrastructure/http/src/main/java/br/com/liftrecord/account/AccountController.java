@@ -20,9 +20,10 @@ public class AccountController implements AccountApi {
 
   @Override
   @LogException
-  public ResponseEntity<RegisterAccountResponseDto> postAccounts(RegisterAccountRequestDto registerAccountRequest) {
+  public ResponseEntity<RegisterAccountResponseDto> postApiV1Accounts(RegisterAccountRequestDto registerAccountRequestDto) {
     return ResponseEntity
         .status(HttpStatus.CREATED)
-        .body(RegisterAccountControllerMapper.toResponse(mediator.execute(RegisterAccountControllerMapper.toCommand(registerAccountRequest))));
+        .body(RegisterAccountControllerMapper.toResponse(mediator
+            .execute(RegisterAccountControllerMapper.toCommand(registerAccountRequestDto))));
   }
 }

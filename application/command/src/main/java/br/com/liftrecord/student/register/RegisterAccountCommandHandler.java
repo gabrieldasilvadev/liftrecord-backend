@@ -29,22 +29,21 @@ public class RegisterAccountCommandHandler implements CommandHandler<RegisterAcc
         .whatHappen("Starting account registration flow")
         .addInfo("REGISTER_ACCOUNT_COMMAND_DATA", command.toString())
         .info(logger);
-
     registerAccountValidator.validate(command).isInvalidThrow(ObjectStateException.class);
     Account newAccount;
     try {
       final Account accountFromCommand = command.toAccount();
       newAccount = createAccountUseCase.execute(accountFromCommand);
     } catch (AccountAlreadyExistsException accountAlreadyExistsException) {
+      final Account existingAccount = accountAlreadyExistsException.getAccount();
       Log5WBuilder
           .method()
           .logCode("RACH-HDL-02")
           .whatHappen("Account already exists")
-          .addInfo("ACCOUNT_DATA", command.toAccount().toString())
+          .addInfo("ACCOUNT_DATA", existingAccount.toString())
           .info(logger);
-      return command.toAccount();
+      return existingAccount;
     }
-
     Log5WBuilder
         .method()
         .logCode("RACH-HDL-03")
