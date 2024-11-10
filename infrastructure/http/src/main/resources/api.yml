@@ -5,27 +5,27 @@ info:
 servers:
   - url: 'http://localhost:7000'
 paths:
-  /api/v1/students:
+  /api/v1/accounts:
     parameters: []
     post:
-      summary: Register new student
-      operationId: post-students
+      summary: Register new account
+      operationId: post-accounts
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RegisterStudentResponse'
+                $ref: '#/components/schemas/RegisterAccountResponse'
       description: ''
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RegisterStudentRequest'
-        description: Corpo da requisicao para cadastrar um novo estudante
+              $ref: '#/components/schemas/RegisterAccountRequest'
+        description: Corpo da requisicao para cadastrar uma nova conta
       tags:
-        - student
+        - account
   '/api/v1/students/{student_id}/':
     parameters:
       - schema:
@@ -44,8 +44,8 @@ paths:
         - student
 components:
   schemas:
-    RegisterStudentRequest:
-      title: RegisterStudentRequest
+    RegisterAccountRequest:
+      title: RegisterAccountRequest
       type: object
       properties:
         name:
@@ -85,8 +85,8 @@ components:
         - neighborhood
         - number
         - zip_code
-    RegisterStudentResponse:
-      title: RegisterStudentResponse
+    RegisterAccountResponse:
+      title: RegisterAccountResponse
       type: object
       properties:
         name:
