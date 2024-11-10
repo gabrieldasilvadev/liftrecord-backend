@@ -2,7 +2,6 @@ package br.com.liftrecord.student;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.core.DomainObject;
-import br.com.liftrecord.student.valueobjects.Address;
 import br.com.liftrecord.student.valueobjects.BodyMetrics;
 import br.com.liftrecord.account.valueobjects.Contact;
 import br.com.liftrecord.student.valueobjects.StudentId;
@@ -38,15 +37,24 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
       // TODO: throw an domain exception
       throw new IllegalStateException("Student already has an account");
     }
-
     this.account = account;
   }
 
   public void inactivateAccount() {
     if (Objects.isNull(this.account)) {
-      // TODO: throw an domain exception
       throw new IllegalStateException("Student does not have an account");
     }
-    this.account.inactivate();
+
+    if (Objects.isNull(this.account.getStatus())) {
+      throw new IllegalStateException("Account status is null");
+    }
+
+    if (this.account.getStatus().isInactive()) {
+      throw new IllegalStateException("Student account is already inactive");
+    }
+
+    if (this.account.getStatus().isPending() || this.account.getStatus().isActive()) {
+      this.account.inactivate();
+    }
   }
 }
