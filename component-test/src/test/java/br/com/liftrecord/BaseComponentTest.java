@@ -28,17 +28,15 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
+@SpringBootTest(classes = Entrypoint.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class BaseComponentTest {
 
   private final static Logger logger = LoggerFactory.getLogger(BaseComponentTest.class);
 
-
   @Container
   @ServiceConnection
   private final static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:14-alpine");
-
 
   @LocalServerPort
   private int port;
