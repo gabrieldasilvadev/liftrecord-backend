@@ -12,7 +12,7 @@ public class Email {
     domain = value.split("@")[1];
   }
 
-  public static Object fromString(String email) {
+  public static Email fromString(String email) {
     return new Email(email);
   }
 
