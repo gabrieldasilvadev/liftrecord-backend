@@ -39,22 +39,4 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
     }
     this.account = account;
   }
-
-  public void inactivateAccount() {
-    if (Objects.isNull(this.account)) {
-      throw new IllegalStateException("Student does not have an account");
-    }
-
-    if (Objects.isNull(this.account.getStatus())) {
-      throw new IllegalStateException("Account status is null");
-    }
-
-    if (this.account.getStatus().isInactive()) {
-      throw new IllegalStateException("Student account is already inactive");
-    }
-
-    if (this.account.getStatus().isPending() || this.account.getStatus().isActive()) {
-      this.account.inactivate();
-    }
-  }
 }

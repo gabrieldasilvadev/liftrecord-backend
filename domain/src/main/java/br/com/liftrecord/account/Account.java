@@ -9,6 +9,7 @@ import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import jakarta.annotation.Nullable;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Optional;
 import lombok.Getter;
 import org.apache.commons.lang3.ObjectUtils;
@@ -59,6 +60,20 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
     return Optional.ofNullable(ObjectUtils.defaultIfNull(password, new Password(null)).password());
   }
 
+  public void inactivate() {
+    if (Objects.isNull(this.getStatus())) {
+      throw new IllegalStateException("Account status is null");
+    }
+
+    if (this.getStatus().isInactive()) {
+      throw new IllegalStateException("Account is already inactive");
+    }
+
+    if (this.getStatus().isPending() || this.getStatus().isActive()) {
+      this.status = AccountStatus.INACTIVE;
+    }
+  }
+
   @Override
   public void accept(Visitor<Account, ?> visitor) {
     visitor.visit(this);
@@ -72,9 +87,5 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
         ", contact=" + contact +
         ", password=" + password +
         "} " + super.toString();
-  }
-
-  public void inactivate() {
-    this.status = AccountStatus.INACTIVE;
   }
 }
