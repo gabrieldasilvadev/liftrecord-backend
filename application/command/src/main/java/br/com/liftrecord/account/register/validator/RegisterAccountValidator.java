@@ -1,8 +1,8 @@
-package br.com.liftrecord.student.register.validator;
+package br.com.liftrecord.account.register.validator;
 
 import br.com.fluentvalidator.AbstractValidator;
 import br.com.fluentvalidator.predicate.PredicateBuilder;
-import br.com.liftrecord.student.register.RegisterAccountCommand;
+import br.com.liftrecord.account.register.RegisterAccountCommand;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;

@@ -3,7 +3,7 @@ package br.com.liftrecord.account;
 
 import br.com.liftrecord.openapi.model.RegisterAccountRequestDto;
 import br.com.liftrecord.openapi.model.RegisterAccountResponseDto;
-import br.com.liftrecord.student.register.RegisterAccountCommand;
+import br.com.liftrecord.account.register.RegisterAccountCommand;
 
 public class RegisterAccountControllerMapper {
 

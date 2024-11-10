@@ -28,7 +28,8 @@ class RegisterStudentComponentTest extends BaseComponentTest {
         .statusCode(HttpStatus.SC_CREATED)
         .body("name", equalTo("name_bbaa851b2153"))
         .body("email", equalTo("emailexample@gmail.com"))
-        .body("status", containsStringIgnoringCase("pending_activation"));
+        .body("status", containsStringIgnoringCase("pending_activation"))
+        .body("birth_date", equalTo("2000-01-01"));
   }
 
   @Test

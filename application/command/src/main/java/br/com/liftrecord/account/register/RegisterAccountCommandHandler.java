@@ -1,4 +1,4 @@
-package br.com.liftrecord.student.register;
+package br.com.liftrecord.account.register;
 
 import br.com.liftrecord.CreateAccountUseCase;
 import br.com.liftrecord.Log5WBuilder;
@@ -6,7 +6,7 @@ import br.com.liftrecord.account.Account;
 import br.com.liftrecord.exception.AccountAlreadyExistsException;
 import br.com.liftrecord.exception.ObjectStateException;
 import br.com.liftrecord.command.CommandHandler;
-import br.com.liftrecord.student.register.validator.RegisterAccountValidator;
+import br.com.liftrecord.account.register.validator.RegisterAccountValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;

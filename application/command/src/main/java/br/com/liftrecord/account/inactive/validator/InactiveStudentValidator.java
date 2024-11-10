@@ -1,7 +1,7 @@
-package br.com.liftrecord.student.inactive.validator;
+package br.com.liftrecord.account.inactive.validator;
 
 import br.com.fluentvalidator.AbstractValidator;
-import br.com.liftrecord.student.inactive.InactiveStudentCommand;
+import br.com.liftrecord.account.inactive.InactiveStudentCommand;
 import org.springframework.stereotype.Component;
 
 @Component

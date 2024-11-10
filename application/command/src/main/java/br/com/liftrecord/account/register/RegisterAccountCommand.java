@@ -1,4 +1,4 @@
-package br.com.liftrecord.student.register;
+package br.com.liftrecord.account.register;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.command.Command;

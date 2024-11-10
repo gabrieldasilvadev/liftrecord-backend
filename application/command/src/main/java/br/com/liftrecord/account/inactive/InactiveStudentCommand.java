@@ -1,4 +1,4 @@
-package br.com.liftrecord.student.inactive;
+package br.com.liftrecord.account.inactive;
 
 import br.com.liftrecord.command.Command;
 import java.io.Serial;

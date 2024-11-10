@@ -1,10 +1,10 @@
-package br.com.liftrecord.student.inactive;
+package br.com.liftrecord.account.inactive;
 
 import br.com.liftrecord.InactiveAccountUseCase;
 import br.com.liftrecord.command.CommandHandler;
 import br.com.liftrecord.exception.ObjectStateException;
 import br.com.liftrecord.student.Student;
-import br.com.liftrecord.student.inactive.validator.InactiveStudentValidator;
+import br.com.liftrecord.account.inactive.validator.InactiveStudentValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
