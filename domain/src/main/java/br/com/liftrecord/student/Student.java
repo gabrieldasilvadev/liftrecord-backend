@@ -9,6 +9,7 @@ import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import lombok.Builder;
 import lombok.Getter;
 
