@@ -2,6 +2,8 @@ package br.com.liftrecord.factory;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.account.AccountId;
+import br.com.liftrecord.account.valueobjects.Contact;
+import br.com.liftrecord.account.valueobjects.Email;
 import br.com.liftrecord.student.AccountStatus;
 import de.huxhorn.sulky.ulid.ULID;
 import java.time.LocalDate;
@@ -22,6 +24,14 @@ public class AccountFactory {
   public static Account createAccount() {
     return Instancio.of(ACCOUNT_MODEL)
         .set(field(Account::getStatus), AccountStatus.ACTIVE)
+        .create();
+  }
+
+  public static Account withEmail(String email) {
+    return Instancio.of(ACCOUNT_MODEL)
+        .set(field(Account::getStatus), AccountStatus.PENDING_ACTIVATION)
+        .set(field(Account::getContact), ContactFactory.withEmail(email))
+        .lenient()
         .create();
   }
 }

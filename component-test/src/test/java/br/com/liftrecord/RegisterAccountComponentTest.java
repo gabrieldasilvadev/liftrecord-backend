@@ -1,11 +1,16 @@
 package br.com.liftrecord;
 
+import br.com.liftrecord.factory.AccountFactory;
+import br.com.liftrecord.repositories.AccountRepository;
+import br.com.liftrecord.repositories.StudentRepository;
+import br.com.liftrecord.tables.AccountTable;
 import br.com.liftrecord.utils.JsonReaderUtil;
 import io.restassured.http.ContentType;
-import java.util.Arrays;
 import org.apache.http.HttpStatus;
+import org.instancio.Instancio;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsStringIgnoringCase;
@@ -13,6 +18,9 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.hasLength;
 
 class RegisterAccountComponentTest extends BaseComponentTest {
+
+  @Autowired
+  private AccountRepository accountRepository;
 
   @Test
   @DisplayName("Given a valid request, When POST /api/v1/accounts, Then return status 201 (CREATED) Account registered")
@@ -45,5 +53,23 @@ class RegisterAccountComponentTest extends BaseComponentTest {
         .statusCode(HttpStatus.SC_BAD_REQUEST)
         .body("message", containsStringIgnoringCase("Email pattern is invalid"))
         .body("status", equalTo("BAD_REQUEST"));
+  }
+
+  @Test
+  @DisplayName("Given a valid request, When POST /api/v1/accounts, Then return status 409 (Conflict) account in registration process")
+  void testRegisterAccountInRegistrationProcess() {
+    final String email = "accountalreadyregistered@gmail.com";
+    String jsonRequest = JsonReaderUtil.readJsonRequest("post-register-student-status-409.json");
+    AccountTable accountTable = AccountTable.fromDomain(AccountFactory.withEmail(email));
+    accountRepository.save(accountTable);
+    given()
+        .body(jsonRequest)
+        .contentType(ContentType.JSON)
+        .when()
+        .post("/api/v1/accounts")
+        .then()
+        .statusCode(HttpStatus.SC_CONFLICT)
+        .body("message", containsStringIgnoringCase("This account has already started the registration process"))
+        .body("status", equalTo("CONFLICT"));
   }
 }
