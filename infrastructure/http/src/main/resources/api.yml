@@ -50,6 +50,26 @@ paths:
           description: No Content
       tags:
         - account
+  '/api/v1/students/{student_id}/body-metrics':
+    parameters:
+      - schema:
+          type: string
+        name: student_id
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-api-v1-students-student_id-body-metrics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignBodyMetricsRequest'
+      tags:
+        - student
 components:
   schemas:
     RegisterAccountRequest:
@@ -104,6 +124,40 @@ components:
           type: string
         account_email:
           type: string
+    AssignBodyMetricsRequest:
+      title: AssignBodyMetricsRequest
+      type: object
+      properties:
+        weight:
+          type: number
+          format: double
+        height:
+          type: number
+          format: double
+        waist_circumference:
+          type: number
+          format: double
+        abdomen_circumference:
+          type: number
+          format: double
+        chest_circumference:
+          type: number
+          format: double
+        arm_circumference:
+          type: number
+          format: double
+        thigh_circumference:
+          type: number
+          format: double
+        hips_circumference:
+          type: number
+          format: double
+        bmi:
+          type: number
+          format: double
+        basal_metabolic_rate:
+          type: number
+          format: double
     RegisterAccountResponse:
       title: RegisterAccountResponse
       type: object
