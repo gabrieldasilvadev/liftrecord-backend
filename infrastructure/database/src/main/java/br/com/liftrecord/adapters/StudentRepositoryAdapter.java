@@ -8,6 +8,7 @@ import java.util.Optional;
 import lombok.experimental.NonFinal;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class StudentRepositoryAdapter implements StudentRepositoryOutputPort {
@@ -26,6 +27,7 @@ public class StudentRepositoryAdapter implements StudentRepositoryOutputPort {
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Optional<Student> findById(String studentId) {
     return repository.findById(studentId).map(StudentTable::toDomain);
   }

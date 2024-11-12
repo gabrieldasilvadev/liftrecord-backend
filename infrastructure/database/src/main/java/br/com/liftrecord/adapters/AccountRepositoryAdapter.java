@@ -1,6 +1,7 @@
 package br.com.liftrecord.adapters;
 
 import br.com.liftrecord.account.Account;
+import br.com.liftrecord.account.AccountId;
 import br.com.liftrecord.account.valueobjects.Email;
 import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
 import br.com.liftrecord.repositories.AccountRepository;
@@ -10,6 +11,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
@@ -23,7 +25,14 @@ public class AccountRepositoryAdapter implements AccountRepositoryOutputPort {
   }
 
   @Override
-  public Optional<Account> findByEmail(Email email) {
-    return accountRepository.findByEmail(email.getValue()).map(AccountTable::toDomain);
+  @Transactional(readOnly = true)
+  public boolean existsByEmail(Email email) {
+    return accountRepository.existsByEmail(email.getValue());
+  }
+
+  @Override
+  @Transactional(readOnly = true)
+  public Optional<Account> findByAccountId(AccountId accountId) {
+    return accountRepository.findById(accountId.getValue()).map(AccountTable::toDomain);
   }
 }
