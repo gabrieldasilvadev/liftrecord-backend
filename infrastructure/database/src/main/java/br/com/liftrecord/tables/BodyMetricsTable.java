@@ -56,4 +56,21 @@ public class BodyMetricsTable {
         this.basalMetabolicRate
     );
   }
+
+  public static BodyMetricsTable fromDomain(BodyMetrics bodyMetrics) {
+    return BodyMetricsTable.builder()
+        .weight(bodyMetrics.getWeight())
+        .height(bodyMetrics.getHeight())
+        .waistCircumference(bodyMetrics.getWaistCircumference())
+        .abdomenCircumference(bodyMetrics.getAbdomenCircumference())
+        .chestCircumference(bodyMetrics.getChestCircumference())
+        .armCircumference(bodyMetrics.getArmCircumference())
+        .thighCircumference(bodyMetrics.getThighCircumference())
+        .hipsCircumference(bodyMetrics.getHipsCircumference())
+        .bmi(bodyMetrics.getBmi())
+        .basalMetabolicRate(bodyMetrics.getBasalMetabolicRate())
+        .measurementDate(bodyMetrics.getMeasurementDate())
+        .isCurrent(bodyMetrics.isCurrent())
+        .build();
+  }
 }

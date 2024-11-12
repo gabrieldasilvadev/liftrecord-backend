@@ -1,10 +1,10 @@
 package br.com.liftrecord.account;
 
+import br.com.liftrecord.account.valueobjects.AccountId;
 import br.com.liftrecord.account.valueobjects.Password;
 import br.com.liftrecord.core.DomainObject;
-import br.com.liftrecord.student.AccountStatus;
-import br.com.liftrecord.account.valueobjects.Contact;
-import br.com.liftrecord.student.valueobjects.Address;
+import br.com.liftrecord.valueobjects.Contact;
+import br.com.liftrecord.valueobjects.Address;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import jakarta.annotation.Nullable;

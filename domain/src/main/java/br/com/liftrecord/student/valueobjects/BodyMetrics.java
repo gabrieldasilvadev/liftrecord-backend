@@ -1,19 +1,22 @@
 package br.com.liftrecord.student.valueobjects;
 
-import lombok.Builder;
+import java.time.LocalDate;
+import lombok.Getter;
 
-@Builder
+@Getter
 public class BodyMetrics {
-  final Double weight;
-  final Double height;
-  final Double waistCircumference;
-  final Double abdomenCircumference;
-  final Double chestCircumference;
-  final Double armCircumference;
-  final Double thighCircumference;
-  final Double hipsCircumference;
-  final Double bmi;
-  final Double basalMetabolicRate;
+  private final Double weight;
+  private final Double height;
+  private final Double waistCircumference;
+  private final Double abdomenCircumference;
+  private final Double chestCircumference;
+  private final Double armCircumference;
+  private final Double thighCircumference;
+  private final Double hipsCircumference;
+  private final Double bmi;
+  private final Double basalMetabolicRate;
+  private boolean isCurrent;
+  private LocalDate measurementDate;
 
   public BodyMetrics(Double weight,
                      Double height,
@@ -35,5 +38,10 @@ public class BodyMetrics {
     this.hipsCircumference = hipsCircumference;
     this.bmi = bmi;
     this.basalMetabolicRate = basalMetabolicRate;
+  }
+
+  public void setCurrent() {
+    this.measurementDate = LocalDate.now();
+    this.isCurrent = true;
   }
 }
