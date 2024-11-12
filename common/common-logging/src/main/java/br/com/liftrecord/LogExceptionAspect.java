@@ -1,6 +1,7 @@
 package br.com.liftrecord;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,6 +19,7 @@ public class LogExceptionAspect {
   public Object aroundAspectHandler(ProceedingJoinPoint joinPoint) throws Throwable {
     Object result;
     ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.registerModule(new JavaTimeModule());
 
     try {
       result = joinPoint.proceed();
