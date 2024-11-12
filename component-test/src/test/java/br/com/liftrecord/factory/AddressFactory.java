@@ -1,6 +1,6 @@
 package br.com.liftrecord.factory;
 
-import br.com.liftrecord.student.valueobjects.Address;
+import br.com.liftrecord.valueobjects.Address;
 import org.instancio.Instancio;
 import org.instancio.Model;
 
