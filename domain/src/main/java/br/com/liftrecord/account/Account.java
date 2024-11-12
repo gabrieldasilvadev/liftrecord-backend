@@ -24,7 +24,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   @Nullable
   private final Password password;
   private final LocalDate birthDate;
-  private Address address;
+  private final Address address;
 
   public Account(String name, String email, String cellphone, LocalDate birthDate, Address address) {
     this.name = name;
@@ -40,14 +40,16 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
                  String email,
                  String cellphone,
                  String password,
-                 AccountStatus status,
-                 LocalDate birthDate) {
+                 @Nullable AccountStatus status,
+                 LocalDate birthDate,
+                 Address address) {
     super(AccountId.fromString(id));
     this.name = name;
     this.contact = new Contact(email, cellphone);
     this.password = new Password(password);
     this.status = status;
     this.birthDate = birthDate;
+    this.address = address;
   }
 
   public void createAccount() {
@@ -61,15 +63,15 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   }
 
   public void inactivate() {
-    if (Objects.isNull(this.getStatus())) {
+    if (Objects.isNull(this.status)) {
       throw new IllegalStateException("Account status is null");
     }
 
-    if (this.getStatus().isInactive()) {
+    if (this.status.isInactive()) {
       throw new IllegalStateException("Account is already inactive");
     }
 
-    if (this.getStatus().isPending() || this.getStatus().isActive()) {
+    if (this.status.isPending() || Objects.requireNonNull(this.getStatus()).isActive()) {
       this.status = AccountStatus.INACTIVE;
     }
   }

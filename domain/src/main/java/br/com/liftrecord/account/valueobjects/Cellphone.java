@@ -1,5 +1,8 @@
 package br.com.liftrecord.account.valueobjects;
 
+import lombok.Getter;
+
+@Getter
 public class Cellphone {
   final String ddd;
   final String number;
