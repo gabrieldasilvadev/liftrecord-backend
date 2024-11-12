@@ -4,8 +4,8 @@ import br.com.liftrecord.command.Command;
 import java.io.Serial;
 import java.io.Serializable;
 
-public record InactiveStudentCommand(
-    String studentId
+public record InactiveAccountCommand(
+    String accountId
 ) implements Command, Serializable {
 
   @Serial

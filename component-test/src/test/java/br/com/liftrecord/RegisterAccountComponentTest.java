@@ -29,7 +29,7 @@ class RegisterAccountComponentTest extends BaseComponentTest {
         .body("email", equalTo("emailexample@gmail.com"))
         .body("status", containsStringIgnoringCase("pending_activation"))
         .body("account_id", hasLength(26))
-        .body("birth_date", equalTo(Arrays.asList(2000, 1, 1)));
+        .body("birth_date", equalTo("2000-01-01"));
   }
 
   @Test
