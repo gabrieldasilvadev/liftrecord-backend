@@ -1,8 +1,8 @@
 package br.com.liftrecord.tables;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.student.AccountStatus;
-import br.com.liftrecord.student.valueobjects.Address;
+import br.com.liftrecord.account.AccountStatus;
+import br.com.liftrecord.valueobjects.Address;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

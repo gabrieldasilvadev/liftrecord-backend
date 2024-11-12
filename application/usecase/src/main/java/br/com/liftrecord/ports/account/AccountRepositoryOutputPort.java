@@ -1,8 +1,8 @@
 package br.com.liftrecord.ports.account;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.account.AccountId;
-import br.com.liftrecord.account.valueobjects.Email;
+import br.com.liftrecord.account.valueobjects.AccountId;
+import br.com.liftrecord.valueobjects.Email;
 import java.util.Optional;
 
 public interface AccountRepositoryOutputPort {

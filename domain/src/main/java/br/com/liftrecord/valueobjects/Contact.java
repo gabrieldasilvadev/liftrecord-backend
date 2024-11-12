@@ -1,4 +1,4 @@
-package br.com.liftrecord.account.valueobjects;
+package br.com.liftrecord.valueobjects;
 
 import jakarta.annotation.Nullable;
 import lombok.Getter;

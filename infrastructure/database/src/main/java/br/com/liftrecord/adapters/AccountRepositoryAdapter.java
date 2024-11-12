@@ -1,8 +1,8 @@
 package br.com.liftrecord.adapters;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.account.AccountId;
-import br.com.liftrecord.account.valueobjects.Email;
+import br.com.liftrecord.account.valueobjects.AccountId;
+import br.com.liftrecord.valueobjects.Email;
 import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
 import br.com.liftrecord.repositories.AccountRepository;
 import br.com.liftrecord.tables.AccountTable;

@@ -1,4 +1,4 @@
-package br.com.liftrecord.account;
+package br.com.liftrecord.account.valueobjects;
 
 import br.com.liftrecord.core.Identifier;
 import de.huxhorn.sulky.ulid.ULID;

@@ -1,10 +1,8 @@
 package br.com.liftrecord.factory;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.account.AccountId;
-import br.com.liftrecord.account.valueobjects.Contact;
-import br.com.liftrecord.account.valueobjects.Email;
-import br.com.liftrecord.student.AccountStatus;
+import br.com.liftrecord.account.valueobjects.AccountId;
+import br.com.liftrecord.account.AccountStatus;
 import de.huxhorn.sulky.ulid.ULID;
 import java.time.LocalDate;
 import org.instancio.Instancio;

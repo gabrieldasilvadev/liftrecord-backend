@@ -1,6 +1,6 @@
 package br.com.liftrecord.tables;
 
-import br.com.liftrecord.student.valueobjects.Address;
+import br.com.liftrecord.valueobjects.Address;
 import de.huxhorn.sulky.ulid.ULID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

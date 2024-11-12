@@ -1,4 +1,4 @@
-package br.com.liftrecord.student.valueobjects;
+package br.com.liftrecord.valueobjects;
 
 public record Address(
     String state,

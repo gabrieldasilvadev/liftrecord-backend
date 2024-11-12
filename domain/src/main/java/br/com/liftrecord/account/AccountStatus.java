@@ -1,4 +1,4 @@
-package br.com.liftrecord.student;
+package br.com.liftrecord.account;
 
 public enum AccountStatus {
   ACTIVE("active"),

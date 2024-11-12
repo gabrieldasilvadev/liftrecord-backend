@@ -1,8 +1,8 @@
 package br.com.liftrecord.factory;
 
-import br.com.liftrecord.account.valueobjects.Cellphone;
-import br.com.liftrecord.account.valueobjects.Contact;
-import br.com.liftrecord.account.valueobjects.Email;
+import br.com.liftrecord.valueobjects.Cellphone;
+import br.com.liftrecord.valueobjects.Contact;
+import br.com.liftrecord.valueobjects.Email;
 import org.instancio.Instancio;
 import org.instancio.Model;
 
