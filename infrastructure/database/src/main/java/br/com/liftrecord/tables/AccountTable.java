@@ -2,6 +2,7 @@ package br.com.liftrecord.tables;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.student.AccountStatus;
+import br.com.liftrecord.student.valueobjects.Address;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -61,6 +62,14 @@ public class AccountTable {
   }
 
   public Account toDomain() {
-    return new Account(id, name, email, cellphone, password, status, birthDate);
+    return new Account(id, name, email, cellphone, password, status, birthDate, new Address(
+        address.getState(),
+        address.getCity(),
+        address.getNeighborhood(),
+        address.getStreet(),
+        address.getNumber(),
+        address.getComplement(),
+        address.getZipCode()
+    ));
   }
 }
