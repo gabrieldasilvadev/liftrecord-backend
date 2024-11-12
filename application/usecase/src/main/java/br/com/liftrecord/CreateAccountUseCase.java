@@ -22,7 +22,7 @@ public class CreateAccountUseCase implements UseCase<Account, Account>{
 
     boolean accountAlreadyExists = accountRepositoryOutputPort.existsByEmail(input.getContact().getEmail());
     if (accountAlreadyExists) {
-      throw new AccountAlreadyExistsException("This account has already started the registration process: ", input);
+      throw new AccountAlreadyExistsException("This account has already started the registration process");
     }
 
     input.createAccount();

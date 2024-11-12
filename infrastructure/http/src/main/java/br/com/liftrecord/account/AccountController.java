@@ -1,6 +1,5 @@
 package br.com.liftrecord.account;
 
-import br.com.liftrecord.LogException;
 import br.com.liftrecord.account.inactive.InactiveAccountCommand;
 import br.com.liftrecord.mediator.Mediator;
 import br.com.liftrecord.openapi.api.AccountApi;
@@ -20,7 +19,6 @@ public class AccountController implements AccountApi {
   }
 
   @Override
-  @LogException
   public ResponseEntity<RegisterAccountResponseDto> postApiV1Accounts(RegisterAccountRequestDto registerAccountRequestDto) {
     return ResponseEntity
         .status(HttpStatus.CREATED)
@@ -29,7 +27,6 @@ public class AccountController implements AccountApi {
   }
 
   @Override
-  @LogException
   public ResponseEntity<Void> deleteApiV1AccountsAccountId(String accountId) {
     mediator.execute(new InactiveAccountCommand(accountId));
     return ResponseEntity.noContent().build();
