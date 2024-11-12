@@ -3,11 +3,12 @@ package br.com.liftrecord.student;
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.core.DomainObject;
 import br.com.liftrecord.student.valueobjects.BodyMetrics;
-import br.com.liftrecord.account.valueobjects.Contact;
+import br.com.liftrecord.valueobjects.Contact;
 import br.com.liftrecord.student.valueobjects.StudentId;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.Map;
 import java.util.Objects;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,7 +19,7 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
   private final String name;
   private final Contact contact;
   private Account account;
-  private final List<BodyMetrics> bodyMetrics;
+  private Map<LocalDate, BodyMetrics> bodyMetrics;
 
 
   @Override
@@ -38,5 +39,11 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
       throw new IllegalStateException("Student already has an account");
     }
     this.account = account;
+  }
+
+  public void assignBodyMetrics(BodyMetrics bodyMetrics) {
+    Objects.requireNonNull(bodyMetrics, "Body metrics cannot be null");
+    bodyMetrics.setCurrent();
+    this.bodyMetrics.put(LocalDate.now(), bodyMetrics);
   }
 }
