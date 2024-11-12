@@ -5,18 +5,16 @@ import br.com.liftrecord.mediator.Mediator;
 import br.com.liftrecord.openapi.api.AccountApi;
 import br.com.liftrecord.openapi.model.RegisterAccountRequestDto;
 import br.com.liftrecord.openapi.model.RegisterAccountResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class AccountController implements AccountApi {
 
   private final Mediator mediator;
-
-  public AccountController(Mediator mediator) {
-    this.mediator = mediator;
-  }
 
   @Override
   public ResponseEntity<RegisterAccountResponseDto> postApiV1Accounts(RegisterAccountRequestDto registerAccountRequestDto) {
