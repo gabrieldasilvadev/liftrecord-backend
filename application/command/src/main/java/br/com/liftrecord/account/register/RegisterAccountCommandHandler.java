@@ -35,14 +35,13 @@ public class RegisterAccountCommandHandler implements CommandHandler<RegisterAcc
       final Account accountFromCommand = command.toAccount();
       newAccount = createAccountUseCase.execute(accountFromCommand);
     } catch (AccountAlreadyExistsException accountAlreadyExistsException) {
-      final Account existingAccount = accountAlreadyExistsException.getAccount();
       Log5WBuilder
           .method()
           .logCode("RACH-HDL-02")
-          .whatHappen("Account already exists")
-          .addInfo("ACCOUNT_DATA", existingAccount.toString())
+          .whatHappen("Account in process of registration")
+          .addInfo("REGISTER_ACCOUNT_COMMAND_DATA", command.toString())
           .info(logger);
-      return existingAccount;
+      throw accountAlreadyExistsException;
     }
     Log5WBuilder
         .method()

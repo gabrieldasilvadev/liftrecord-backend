@@ -1,25 +1,23 @@
 package br.com.liftrecord;
 
+import br.com.liftrecord.account.Account;
+import br.com.liftrecord.account.AccountId;
+import br.com.liftrecord.exception.AccountNotFoundException;
 import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
-import br.com.liftrecord.ports.account.InactiveAccountOutputPort;
-import br.com.liftrecord.ports.student.StudentRepositoryOutputPort;
-import br.com.liftrecord.student.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class InactiveAccountUseCase implements UseCase<String, Student> {
+public class InactiveAccountUseCase implements UseCase<AccountId, Account> {
 
-  private final StudentRepositoryOutputPort studentRepository;
   private final AccountRepositoryOutputPort accountRepository;
-//  private final InactiveAccountOutputPort inactiveAccountOutputPort;
 
   @Override
-  public Student execute(String input) {
-    Student student = studentRepository.findById(input).orElseThrow(() -> new IllegalArgumentException("Student not found"));
-    student.inactivateAccount();
-    accountRepository.save(student.getAccount());
-    return null;
+  public Account execute(AccountId input) {
+    Account account = accountRepository.findByAccountId(input).orElseThrow(() ->
+        new AccountNotFoundException(String.format("Account with id %s not found", input.getValue())));
+    account.inactivate();
+    return accountRepository.save(account);
   }
 }

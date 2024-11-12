@@ -24,19 +24,16 @@ public class RegisterAccountControllerMapper {
   }
 
   public static RegisterAccountResponseDto toResponse(Account account) {
-    try {
-      assert account.getContact().getEmail() != null;
-      assert account.getContact().getCellphone() != null;
-      assert account.getStatus() != null;
-      return new RegisterAccountResponseDto()
-          .accountId(account.getId().getValue())
-          .name(account.getName())
-          .email(account.getContact().getEmail().getValue())
-          .cellphone(account.getContact().getCellphone().getFullNumber())
-          .birthDate(account.getBirthDate())
-          .status(account.getStatus().name());
-    } catch (NullPointerException e) {
-      return new RegisterAccountResponseDto();
-    }
+    assert account.getContact().getEmail() != null;
+    assert account.getContact().getCellphone() != null;
+    assert account.getStatus() != null;
+    return new RegisterAccountResponseDto()
+        .accountId(account.getId().getValue())
+        .name(account.getName())
+        .email(account.getContact().getEmail().getValue())
+        .cellphone(account.getContact().getCellphone().getFullNumber())
+        .birthDate(account.getBirthDate())
+        .status(account.getStatus().name());
   }
 }
+

@@ -4,7 +4,6 @@ import br.com.liftrecord.exception.AccountAlreadyExistsException;
 import br.com.liftrecord.exception.ObjectStateException;
 import br.com.liftrecord.openapi.model.ErrorResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
-import java.util.Objects;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
