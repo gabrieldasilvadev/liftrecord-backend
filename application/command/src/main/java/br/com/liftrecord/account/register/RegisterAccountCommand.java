@@ -2,7 +2,7 @@ package br.com.liftrecord.account.register;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.command.Command;
-import br.com.liftrecord.student.valueobjects.Address;
+import br.com.liftrecord.valueobjects.Address;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

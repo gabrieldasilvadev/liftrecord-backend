@@ -1,7 +1,7 @@
 package br.com.liftrecord;
 
 import br.com.liftrecord.account.Account;
-import br.com.liftrecord.account.AccountId;
+import br.com.liftrecord.account.valueobjects.AccountId;
 import br.com.liftrecord.exception.AccountNotFoundException;
 import br.com.liftrecord.ports.account.AccountRepositoryOutputPort;
 import lombok.RequiredArgsConstructor;
