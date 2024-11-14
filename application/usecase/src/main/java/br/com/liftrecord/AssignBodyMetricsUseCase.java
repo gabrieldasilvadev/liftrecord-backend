@@ -15,7 +15,6 @@ public class AssignBodyMetricsUseCase implements UseCase<AssignBodyMetricsTransi
   public Student execute(AssignBodyMetricsTransient input) {
     BodyMetrics bodyMetrics = input.bodyMetrics();
     Student student = studentRepositoryOutputPort.findById(input.studentId()).orElseThrow();
-
     student.assignBodyMetrics(bodyMetrics);
     return studentRepositoryOutputPort.save(student);
   }
