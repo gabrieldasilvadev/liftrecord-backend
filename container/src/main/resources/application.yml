@@ -19,14 +19,14 @@ spring:
         generate_statistics: false
         format_sql: false
   datasource:
-    url: ${database.url}?binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
-    username: ${database.username}
-    password: ${database.password}
+    url: ${database.url:jdbc:postgresql://localhost:5432/liftrecord}?binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    username: ${database.username:liftrecord}
+    password: ${database.password:liftrecord}
     initialization-mode: always
     driver-class-name: org.postgresql.Driver
   flyway:
     enabled: true
     baseline-on-migrate: true
-    url: ${database.url}
-    user: ${database.username}
-    password: ${database.password}
+    url: ${database.url:jdbc:postgresql://localhost:5432/liftrecord}
+    user: ${database.username:liftrecord}
+    password: ${database.password:liftrecord}
