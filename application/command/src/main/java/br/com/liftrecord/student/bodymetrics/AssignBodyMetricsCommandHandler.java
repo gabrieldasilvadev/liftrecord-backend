@@ -38,7 +38,7 @@ public class AssignBodyMetricsCommandHandler implements CommandHandler<AssignBod
         .addInfo("STUDENT_ID", command.studentId())
         .addInfo("BODY_METRICS", StringUtils.join(student.getBodyMetrics()))
         .info(logger);
-    return null;
+    return student;
   }
 
   @Override
