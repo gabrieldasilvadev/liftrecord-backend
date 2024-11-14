@@ -30,13 +30,11 @@ public class InactiveAccountCommandHandler implements CommandHandler<InactiveAcc
         .whatHappen("Inactive account")
         .addInfo("ACCOUNT_ID", command.accountId())
         .info(logger);
-
     inactiveAccountValidator.validate(command).isInvalidThrow(ObjectStateException.class);
     Account account = accountRepositoryOutputPort
         .findByAccountId(AccountId.fromString(command.accountId())).orElseThrow(() ->
             new AccountNotFoundException(String.format("Account with id %s not found", command.accountId())));
     account.inactivate();
-    
     Log5WBuilder
         .method()
         .logCode("IACH-HDL-02")
