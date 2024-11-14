@@ -44,4 +44,22 @@ public class BodyMetrics {
     this.measurementDate = LocalDate.now();
     this.isCurrent = true;
   }
+
+  @Override
+  public String toString() {
+    return "BodyMetrics{" +
+        "weight=" + weight +
+        ", height=" + height +
+        ", waistCircumference=" + waistCircumference +
+        ", abdomenCircumference=" + abdomenCircumference +
+        ", chestCircumference=" + chestCircumference +
+        ", armCircumference=" + armCircumference +
+        ", thighCircumference=" + thighCircumference +
+        ", hipsCircumference=" + hipsCircumference +
+        ", bmi=" + bmi +
+        ", basalMetabolicRate=" + basalMetabolicRate +
+        ", isCurrent=" + isCurrent +
+        ", measurementDate=" + measurementDate +
+        '}';
+  }
 }

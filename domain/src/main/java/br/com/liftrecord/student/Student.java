@@ -46,4 +46,14 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
     bodyMetrics.setCurrent();
     this.bodyMetrics.put(LocalDate.now(), bodyMetrics);
   }
+
+  @Override
+  public String toString() {
+    return "Student{" +
+        "name='" + name + '\'' +
+        ", contact=" + contact +
+        ", account=" + account +
+        ", bodyMetrics=" + bodyMetrics +
+        "} " + super.toString();
+  }
 }
