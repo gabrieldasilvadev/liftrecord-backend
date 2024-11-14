@@ -12,28 +12,13 @@
     <dependencies>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-application</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>br.com.liftrecord</groupId>
             <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>br.com.liftrecord</groupId>
-            <artifactId>common-logging</artifactId>
+            <artifactId>database</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
         </dependency>
     </dependencies>
 </project>

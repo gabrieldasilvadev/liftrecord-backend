@@ -18,6 +18,29 @@
 
     <dependencies>
         <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>common-application</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>common-logging</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.liftrecord</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.github.mvallim</groupId>
             <artifactId>java-fluent-validator</artifactId>
             <version>1.10.0</version>
