@@ -94,10 +94,13 @@ components:
         address:
           $ref: '#/components/schemas/RegisterAddressRequest'
       required:
-        - firstName
+        - first_name
+        - last_name
         - cellphone
         - email
         - birth_date
+        - gender
+        - biological_sex
     RegisterAddressRequest:
       title: RegisterAddressRequest
       type: object
