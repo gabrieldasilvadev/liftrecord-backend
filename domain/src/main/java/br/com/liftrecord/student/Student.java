@@ -16,7 +16,6 @@ import lombok.Getter;
 @Getter
 @Builder
 public class Student extends DomainObject<StudentId> implements Visitable<Student> {
-  private final String name;
   private final Contact contact;
   private Account account;
   private Map<LocalDate, BodyMetrics> bodyMetrics;
@@ -50,7 +49,6 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
   @Override
   public String toString() {
     return "Student{" +
-        "name='" + name + '\'' +
         ", contact=" + contact +
         ", account=" + account +
         ", bodyMetrics=" + bodyMetrics +

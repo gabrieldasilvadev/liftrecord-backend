@@ -2,6 +2,7 @@ package br.com.liftrecord.account;
 
 import br.com.liftrecord.account.valueobjects.AccountId;
 import br.com.liftrecord.account.valueobjects.Password;
+import br.com.liftrecord.account.valueobjects.PersonName;
 import br.com.liftrecord.core.DomainObject;
 import br.com.liftrecord.valueobjects.Contact;
 import br.com.liftrecord.valueobjects.Address;
@@ -16,8 +17,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 @Getter
 public class Account extends DomainObject<AccountId> implements Visitable<Account> {
-
-  private final String name;
+  private final PersonName personName;
   @Nullable
   private AccountStatus status;
   private final Contact contact;
@@ -26,8 +26,13 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   private final LocalDate birthDate;
   private final Address address;
 
-  public Account(String name, String email, String cellphone, LocalDate birthDate, Address address) {
-    this.name = name;
+  public Account(String firstName,
+                 String lastName,
+                 String email,
+                 String cellphone,
+                 LocalDate birthDate,
+                 Address address) {
+    this.personName = new PersonName(firstName, lastName);
     this.contact = new Contact(email, cellphone);
     this.birthDate  = birthDate;
     this.address = address;
@@ -36,7 +41,8 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   }
 
   public Account(String id,
-                 String name,
+                 String firstName,
+                 String lastName,
                  String email,
                  String cellphone,
                  String password,
@@ -44,7 +50,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
                  LocalDate birthDate,
                  Address address) {
     super(AccountId.fromString(id));
-    this.name = name;
+    this.personName = new PersonName(firstName, lastName);
     this.contact = new Contact(email, cellphone);
     this.password = new Password(password);
     this.status = status;
@@ -84,7 +90,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   @Override
   public String toString() {
     return "Account{" +
-        "name='" + name + '\'' +
+        "name='" + personName.fullName() + '\'' +
         ", status=" + status +
         ", contact=" + contact +
         ", password=" + password +

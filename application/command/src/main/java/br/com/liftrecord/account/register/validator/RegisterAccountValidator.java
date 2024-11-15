@@ -15,13 +15,22 @@ public class RegisterAccountValidator extends AbstractValidator<RegisterAccountC
 
   @Override
   public void rules() {
-    ruleFor(RegisterAccountCommand::name)
+    ruleFor(RegisterAccountCommand::firstName)
         .must(name -> !name.isEmpty())
         .when(String::isBlank)
-        .withCode("NAME_IS_BLANK")
-        .withMessage("Name cannot be blank")
+        .withCode("FIRST_NAME_IS_BLANK")
+        .withMessage("First name cannot be blank")
         .withFieldName("name")
         .critical();
+
+    ruleFor(RegisterAccountCommand::lastName)
+        .must(name -> !name.isEmpty())
+        .when(String::isBlank)
+        .withCode("LAST_NAME_IS_BLANK")
+        .withMessage("Last name cannot be blank")
+        .withFieldName("name")
+        .critical();
+
 
     ruleFor(RegisterAccountCommand::email)
         .must(PredicateBuilder.from(email -> email != null && emailPattern.matcher(email).matches()))

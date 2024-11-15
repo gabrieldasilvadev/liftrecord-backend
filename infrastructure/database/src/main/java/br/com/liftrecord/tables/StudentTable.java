@@ -66,7 +66,6 @@ public class StudentTable {
         ));
 
     return Student.builder()
-        .name(this.account.getName())
         .contact(new Contact(this.account.getEmail(), this.account.getCellphone()))
         .account(this.account.toDomain())
         .bodyMetrics(domainMetrics)

@@ -14,7 +14,9 @@ import java.time.LocalDate;
 
 public record RegisterAccountCommand(
     @NotBlank
-    String name,
+    String firstName,
+    @NotBlank
+    String lastName,
     @Email
     String email,
     @NotBlank
@@ -47,26 +49,11 @@ public record RegisterAccountCommand(
   private static final long serialVersionUID = -8959707614555490587L;
 
   public Account toAccount() {
-    return new Account(name,
+    return new Account(firstName,
+        lastName,
         email,
         cellphone,
         birthDate,
         new Address(state, city, neighborhood, street, number, complement, zipCode));
-  }
-
-  @Override
-  public String toString() {
-    return "RegisterAccountCommand{" +
-        "name='" + name + '\'' +
-        ", email='" + email + '\'' +
-        ", cellphone='" + cellphone + '\'' +
-        ", state='" + state + '\'' +
-        ", city='" + city + '\'' +
-        ", neighborhood='" + neighborhood + '\'' +
-        ", street='" + street + '\'' +
-        ", number='" + number + '\'' +
-        ", complement='" + complement + '\'' +
-        ", zipCode='" + zipCode + '\'' +
-        '}';
   }
 }

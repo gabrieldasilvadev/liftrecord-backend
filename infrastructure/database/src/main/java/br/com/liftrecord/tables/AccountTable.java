@@ -31,8 +31,10 @@ import lombok.Setter;
 public class AccountTable {
   @Id
   private String id;
-  @Column(nullable = false)
-  private String name;
+  @Column(name = "first_name", nullable = false)
+  private String firstName;
+  @Column(name = "last_name", nullable = false)
+  private String lastName;
   @Column(unique = true)
   private String email;
   @Column(unique = true)
@@ -51,7 +53,8 @@ public class AccountTable {
   public static AccountTable fromDomain(Account account) {
     return AccountTable.builder()
         .id(account.getId().getValue())
-        .name(account.getName())
+        .firstName(account.getPersonName().getFirstName())
+        .lastName(account.getPersonName().getLastName())
         .email(Objects.requireNonNull(account.getContact().getEmail()).getValue())
         .cellphone(Objects.requireNonNull(account.getContact().getCellphone()).getFullNumber())
         .password(Objects.requireNonNull(account.getPassword()).orElse(null))
@@ -62,7 +65,7 @@ public class AccountTable {
   }
 
   public Account toDomain() {
-    return new Account(id, name, email, cellphone, password, status, birthDate, new Address(
+    return new Account(id, firstName, lastName, email, cellphone, password, status, birthDate, new Address(
         address.getState(),
         address.getCity(),
         address.getNeighborhood(),

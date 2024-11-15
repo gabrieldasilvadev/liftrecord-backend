@@ -76,7 +76,9 @@ components:
       title: RegisterAccountRequest
       type: object
       properties:
-        name:
+        first_name:
+          type: string
+        last_name:
           type: string
         cellphone:
           type: string
@@ -85,12 +87,17 @@ components:
         birth_date:
           type: string
           format: date
+        gender:
+          type: string
+        biological_sex:
+          type: string
         address:
           $ref: '#/components/schemas/RegisterAddressRequest'
       required:
-        - name
+        - firstName
         - cellphone
         - email
+        - birth_date
     RegisterAddressRequest:
       title: RegisterAddressRequest
       type: object
@@ -120,10 +127,17 @@ components:
       title: RegisterStudentRequest
       type: object
       properties:
-        cnpj:
+        academy_id:
           type: string
-        account_email:
+        account_id:
           type: string
+        medical_conditions:
+          type: string
+        goal:
+          type: string
+      required:
+        - academy_id
+        - account_id
     AssignBodyMetricsRequest:
       title: AssignBodyMetricsRequest
       type: object
@@ -158,6 +172,17 @@ components:
         basal_metabolic_rate:
           type: number
           format: double
+      required:
+        - weight
+        - height
+        - waist_circumference
+        - abdomen_circumference
+        - chest_circumference
+        - arm_circumference
+        - thigh_circumference
+        - hips_circumference
+        - bmi
+        - basal_metabolic_rate
     RegisterAccountResponse:
       title: RegisterAccountResponse
       type: object

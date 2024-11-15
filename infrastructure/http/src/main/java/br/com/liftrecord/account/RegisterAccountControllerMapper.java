@@ -9,7 +9,8 @@ public class RegisterAccountControllerMapper {
 
   public static RegisterAccountCommand toCommand(RegisterAccountRequestDto registerAccountRequestDto) {
     return new RegisterAccountCommand(
-        registerAccountRequestDto.getName(),
+        registerAccountRequestDto.getFirstName(),
+        registerAccountRequestDto.getLastName(),
         registerAccountRequestDto.getEmail(),
         registerAccountRequestDto.getCellphone(),
         registerAccountRequestDto.getAddress().getState(),
@@ -29,7 +30,7 @@ public class RegisterAccountControllerMapper {
     assert account.getStatus() != null;
     return new RegisterAccountResponseDto()
         .accountId(account.getId().getValue())
-        .name(account.getName())
+        .name(account.getPersonName().fullName())
         .email(account.getContact().getEmail().getValue())
         .cellphone(account.getContact().getCellphone().getFullNumber())
         .birthDate(account.getBirthDate())
