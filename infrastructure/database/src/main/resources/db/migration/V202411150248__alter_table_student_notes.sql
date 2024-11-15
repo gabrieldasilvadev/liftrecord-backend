@@ -1,0 +1,6 @@
+ALTER TABLE student_notes
+ADD COLUMN type VARCHAR(30) NOT NULL,
+ADD COLUMN text VARCHAR(255) NOT NULL;
+
+ALTER TABLE student_notes
+DROP COLUMN note;
