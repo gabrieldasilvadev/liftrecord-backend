@@ -49,6 +49,8 @@ public class AccountTable {
   @JoinColumn(name = "address_id", nullable = false)
   private AddressTable address;
   private LocalDate birthDate;
+  private String gender;
+  private String biologicalSex;
 
   public static AccountTable fromDomain(Account account) {
     return AccountTable.builder()
@@ -65,14 +67,24 @@ public class AccountTable {
   }
 
   public Account toDomain() {
-    return new Account(id, firstName, lastName, email, cellphone, password, status, birthDate, new Address(
-        address.getState(),
-        address.getCity(),
-        address.getNeighborhood(),
-        address.getStreet(),
-        address.getNumber(),
-        address.getComplement(),
-        address.getZipCode()
-    ));
+    return new Account(id,
+        firstName,
+        lastName,
+        email,
+        cellphone,
+        password,
+        status,
+        birthDate,
+        gender,
+        biologicalSex,
+        new Address(
+            address.getState(),
+            address.getCity(),
+            address.getNeighborhood(),
+            address.getStreet(),
+            address.getNumber(),
+            address.getComplement(),
+            address.getZipCode()
+        ));
   }
 }

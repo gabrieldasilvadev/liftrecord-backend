@@ -25,17 +25,23 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   private final Password password;
   private final LocalDate birthDate;
   private final Address address;
+  private final String gender;
+  private final String biologicalSex;
 
   public Account(String firstName,
                  String lastName,
                  String email,
                  String cellphone,
                  LocalDate birthDate,
+                 String gender,
+                 String biologicalSex,
                  Address address) {
     this.personName = new PersonName(firstName, lastName);
     this.contact = new Contact(email, cellphone);
-    this.birthDate  = birthDate;
+    this.birthDate = birthDate;
     this.address = address;
+    this.gender = gender;
+    this.biologicalSex = biologicalSex;
     this.password = null;
     this.status = null;
   }
@@ -48,6 +54,8 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
                  String password,
                  @Nullable AccountStatus status,
                  LocalDate birthDate,
+                 String gender,
+                 String biologicalSex,
                  Address address) {
     super(AccountId.fromString(id));
     this.personName = new PersonName(firstName, lastName);
@@ -55,6 +63,8 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
     this.password = new Password(password);
     this.status = status;
     this.birthDate = birthDate;
+    this.gender = gender;
+    this.biologicalSex = biologicalSex;
     this.address = address;
   }
 

@@ -2,12 +2,10 @@ package br.com.liftrecord;
 
 import br.com.liftrecord.factory.AccountFactory;
 import br.com.liftrecord.repositories.AccountRepository;
-import br.com.liftrecord.repositories.StudentRepository;
 import br.com.liftrecord.tables.AccountTable;
 import br.com.liftrecord.utils.JsonReaderUtil;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
-import org.instancio.Instancio;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +23,7 @@ class RegisterAccountComponentTest extends BaseComponentTest {
   @Test
   @DisplayName("Given a valid request, When POST /api/v1/accounts, Then return status 201 (CREATED) Account registered")
   void testRegisterStatus() {
-    String jsonRequest = JsonReaderUtil.readJsonRequest("post-register-student-status-200.json");
+    String jsonRequest = JsonReaderUtil.readJsonRequest("account/post-register-account-status-200.json");
     given()
         .body(jsonRequest)
         .contentType(ContentType.JSON)
@@ -33,7 +31,7 @@ class RegisterAccountComponentTest extends BaseComponentTest {
         .post("/api/v1/accounts")
         .then()
         .statusCode(HttpStatus.SC_CREATED)
-        .body("name", equalTo("name_bbaa851b2153"))
+        .body("name", equalTo("name_bbaa851b2153 aaaa"))
         .body("email", equalTo("emailexample@gmail.com"))
         .body("status", containsStringIgnoringCase("pending_activation"))
         .body("account_id", hasLength(26))
@@ -43,7 +41,7 @@ class RegisterAccountComponentTest extends BaseComponentTest {
   @Test
   @DisplayName("Given a valid request, When POST /api/v1/accounts, Then return status 400 (Bad Request) invalid Email pattern")
   void testRegisterInvalidEmailPattern() {
-    String jsonRequest = JsonReaderUtil.readJsonRequest("post-register-student-invalid-email-pattern-status-400.json");
+    String jsonRequest = JsonReaderUtil.readJsonRequest("account/post-register-account-invalid-email-pattern-status-400.json");
     given()
         .body(jsonRequest)
         .contentType(ContentType.JSON)
@@ -59,7 +57,7 @@ class RegisterAccountComponentTest extends BaseComponentTest {
   @DisplayName("Given a valid request, When POST /api/v1/accounts, Then return status 409 (Conflict) account in registration process")
   void testRegisterAccountInRegistrationProcess() {
     final String email = "accountalreadyregistered@gmail.com";
-    String jsonRequest = JsonReaderUtil.readJsonRequest("post-register-student-status-409.json");
+    String jsonRequest = JsonReaderUtil.readJsonRequest("account/post-register-account-status-409.json");
     AccountTable accountTable = AccountTable.fromDomain(AccountFactory.withEmail(email));
     accountRepository.save(accountTable);
     given()

@@ -42,7 +42,11 @@ public record RegisterAccountCommand(
     @NotBlank
     @Size(min = 10, max = 11)
     @Past
-    LocalDate birthDate
+    LocalDate birthDate,
+    @NotBlank
+    String gender,
+    @NotBlank
+    String biologicalSex
 ) implements Command, Serializable {
 
   @Serial
@@ -54,6 +58,8 @@ public record RegisterAccountCommand(
         email,
         cellphone,
         birthDate,
+        gender,
+        biologicalSex,
         new Address(state, city, neighborhood, street, number, complement, zipCode));
   }
 }

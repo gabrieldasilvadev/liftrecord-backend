@@ -20,7 +20,9 @@ public class RegisterAccountControllerMapper {
         registerAccountRequestDto.getAddress().getNumber(),
         registerAccountRequestDto.getAddress().getComplement(),
         registerAccountRequestDto.getAddress().getZipCode(),
-        registerAccountRequestDto.getBirthDate()
+        registerAccountRequestDto.getBirthDate(),
+        registerAccountRequestDto.getGender(),
+        registerAccountRequestDto.getBiologicalSex()
     );
   }
 
