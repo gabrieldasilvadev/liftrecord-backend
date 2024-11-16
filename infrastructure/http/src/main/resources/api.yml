@@ -61,8 +61,12 @@ paths:
       summary: ''
       operationId: post-api-v1-students-student_id-body-metrics
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignBodyMetricsResponse'
       requestBody:
         content:
           application/json:
@@ -203,6 +207,44 @@ components:
         birth_date:
           type: string
           format: date
+    AssignBodyMetricsResponse:
+      title: AssignBodyMetricsResponse
+      type: object
+      properties:
+        student_id:
+          type: string
+        weight:
+          type: number
+          format: double
+        height:
+          type: number
+          format: double
+        waist_circumference:
+          type: number
+          format: double
+        abdomen_circumference:
+          type: number
+          format: double
+        chest_circumference:
+          type: number
+          format: double
+        arm_circumference:
+          type: number
+          format: double
+        thigh_circumference:
+          type: number
+          format: double
+        hips_circumference:
+          type: number
+          format: double
+        bmi:
+          type: number
+          format: double
+        basal_metabolic_rate:
+          type: number
+          format: double
+      required:
+        - student_id
     ErrorResponse:
       title: ErrorResponse
       type: object
