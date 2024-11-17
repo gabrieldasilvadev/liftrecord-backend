@@ -52,4 +52,18 @@ public record AssignBodyMetricsCommand(
             bmi,
             basalMetabolicRate));
   }
+
+  public BodyMetrics toBodyMetrics() {
+    return new BodyMetrics(
+        weight,
+        height,
+        waistCircumference,
+        abdomenCircumference,
+        chestCircumference,
+        armCircumference,
+        thighCircumference,
+        hipsCircumference,
+        bmi,
+        basalMetabolicRate);
+  }
 }
