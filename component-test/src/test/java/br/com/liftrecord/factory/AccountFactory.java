@@ -14,6 +14,7 @@ public class AccountFactory {
   public static final Model<Account> ACCOUNT_MODEL = Instancio.of(Account.class)
       .generate(field(Account::getId), gen -> gen.oneOf(AccountId.fromString(new ULID().nextULID())))
       .generate(field(Account::getStatus), gen -> gen.enumOf(AccountStatus.class))
+      .generate(field(Account::getBiologicalSex), gen -> gen.oneOf("MALE", "FEMALE"))
       .set(field(Account::getBirthDate), LocalDate.of(1999, 1, 1))
       .setModel(field(Account::getContact), ContactFactory.CONTACT_MODEL)
       .setModel(field(Account::getAddress), AddressFactory.ADDRESS_MODEL)

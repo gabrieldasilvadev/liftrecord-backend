@@ -62,6 +62,8 @@ public class AccountTable {
         .password(Objects.requireNonNull(account.getPassword()).orElse(null))
         .status(account.getStatus())
         .birthDate(account.getBirthDate())
+        .biologicalSex(account.getBiologicalSex())
+        .gender(account.getGender())
         .address(AddressTable.fromDomain(account.getAddress()))
         .build();
   }
