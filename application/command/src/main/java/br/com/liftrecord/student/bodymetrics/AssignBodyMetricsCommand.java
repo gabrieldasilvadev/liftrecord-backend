@@ -1,7 +1,6 @@
 package br.com.liftrecord.student.bodymetrics;
 
 import br.com.liftrecord.command.Command;
-import br.com.liftrecord.dto.AssignBodyMetricsTransient;
 import br.com.liftrecord.student.valueobjects.BodyMetrics;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -36,22 +35,6 @@ public record AssignBodyMetricsCommand(
 
   @Serial
   private static final long serialVersionUID = 2966900717278696363L;
-
-  public AssignBodyMetricsTransient toTransient() {
-    return new AssignBodyMetricsTransient(
-        this.studentId,
-        new BodyMetrics(
-            weight,
-            height,
-            waistCircumference,
-            abdomenCircumference,
-            chestCircumference,
-            armCircumference,
-            thighCircumference,
-            hipsCircumference,
-            bmi,
-            basalMetabolicRate));
-  }
 
   public BodyMetrics toBodyMetrics() {
     return new BodyMetrics(
