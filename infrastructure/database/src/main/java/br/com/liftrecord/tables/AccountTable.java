@@ -2,6 +2,8 @@ package br.com.liftrecord.tables;
 
 import br.com.liftrecord.account.Account;
 import br.com.liftrecord.account.AccountStatus;
+import br.com.liftrecord.account.valueobjects.AccountId;
+import br.com.liftrecord.student.valueobjects.StudentId;
 import br.com.liftrecord.valueobjects.Address;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -79,6 +81,7 @@ public class AccountTable {
         birthDate,
         gender,
         biologicalSex,
+        StudentId.fromString(id),
         new Address(
             address.getState(),
             address.getCity(),

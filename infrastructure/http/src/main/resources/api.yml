@@ -35,6 +35,11 @@ paths:
           description: Created
       tags:
         - student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterStudentRequest'
   '/api/v1/accounts/{account_id}':
     parameters:
       - schema:
@@ -245,6 +250,16 @@ components:
           format: double
       required:
         - student_id
+    RegisterStudentResponse:
+      title: RegisterStudentResponse
+      type: object
+      properties:
+        student_id:
+          type: string
+        academy_id:
+          type: string
+        gym_registration_status:
+          type: string
     ErrorResponse:
       title: ErrorResponse
       type: object

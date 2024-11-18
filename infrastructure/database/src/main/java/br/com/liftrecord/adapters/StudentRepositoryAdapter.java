@@ -1,5 +1,6 @@
 package br.com.liftrecord.adapters;
 
+import br.com.liftrecord.account.valueobjects.AccountId;
 import br.com.liftrecord.ports.student.StudentRepositoryOutputPort;
 import br.com.liftrecord.repositories.StudentRepository;
 import br.com.liftrecord.student.Student;
@@ -30,5 +31,11 @@ public class StudentRepositoryAdapter implements StudentRepositoryOutputPort {
   @Transactional(readOnly = true)
   public Optional<Student> findById(String studentId) {
     return repository.findById(studentId).map(StudentTable::toDomain);
+  }
+
+  @Override
+  @Transactional(readOnly = true)
+  public Optional<Student> findByAccountId(AccountId accountId) {
+    return repository.findById(accountId.getValue()).map(StudentTable::toDomain);
   }
 }

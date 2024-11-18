@@ -4,6 +4,7 @@ import br.com.liftrecord.account.valueobjects.AccountId;
 import br.com.liftrecord.account.valueobjects.Password;
 import br.com.liftrecord.account.valueobjects.PersonName;
 import br.com.liftrecord.core.DomainObject;
+import br.com.liftrecord.student.valueobjects.StudentId;
 import br.com.liftrecord.valueobjects.Contact;
 import br.com.liftrecord.valueobjects.Address;
 import br.com.liftrecord.visitor.Visitable;
@@ -23,6 +24,8 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   private final Contact contact;
   @Nullable
   private final Password password;
+  @Nullable
+  private final StudentId studentId;
   private final LocalDate birthDate;
   private final Address address;
   private final String gender;
@@ -44,6 +47,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
     this.biologicalSex = biologicalSex;
     this.password = null;
     this.status = null;
+    this.studentId = null;
   }
 
   public Account(String id,
@@ -56,6 +60,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
                  LocalDate birthDate,
                  String gender,
                  String biologicalSex,
+                 StudentId studentId,
                  Address address) {
     super(AccountId.fromString(id));
     this.personName = new PersonName(firstName, lastName);
@@ -66,6 +71,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
     this.gender = gender;
     this.biologicalSex = biologicalSex;
     this.address = address;
+    this.studentId = studentId;
   }
 
   public void createAccount() {

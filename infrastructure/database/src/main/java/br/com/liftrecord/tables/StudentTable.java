@@ -34,7 +34,7 @@ public class StudentTable {
   @Id
   private String id;
   @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-  @MapKey(name = "measurementDate") // Define `measurementDate` como chave do Map
+  @MapKey(name = "measurementDate")
   private Map<LocalDate, BodyMetricsTable> bodyMetrics = new HashMap<>();
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "account_id", referencedColumnName = "id")
@@ -66,7 +66,6 @@ public class StudentTable {
         ));
 
     return Student.builder()
-        .contact(new Contact(this.account.getEmail(), this.account.getCellphone()))
         .account(this.account.toDomain())
         .bodyMetrics(domainMetrics)
         .build();

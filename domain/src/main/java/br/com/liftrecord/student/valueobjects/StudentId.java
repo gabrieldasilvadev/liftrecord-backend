@@ -11,4 +11,8 @@ public class StudentId extends Identifier<String> {
   public StudentId() {
     super(new ULID().nextULID());
   }
+
+  public static StudentId fromString(String studentId) {
+    return new StudentId(studentId);
+  }
 }
