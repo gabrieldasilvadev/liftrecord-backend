@@ -1,5 +1,5 @@
 package br.com.liftrecord.visitor;
 
-public interface Visitor<T, R> {
+public interface Visitor<R, T> {
   R visit(T candidate);
 }
