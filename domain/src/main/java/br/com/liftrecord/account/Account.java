@@ -99,7 +99,7 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
   }
 
   @Override
-  public void accept(Visitor<Account, ?> visitor) {
+  public void accept(Visitor<?, Account> visitor) {
     visitor.visit(this);
   }
 
@@ -111,5 +111,11 @@ public class Account extends DomainObject<AccountId> implements Visitable<Accoun
         ", contact=" + contact +
         ", password=" + password +
         "} " + super.toString();
+  }
+
+  public boolean hasActiveStudent() {
+    if (!Objects.nonNull(this.studentId)) return false;
+    assert this.status != null;
+    return this.status.isActive();
   }
 }
