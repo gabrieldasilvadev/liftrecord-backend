@@ -1,7 +1,6 @@
 package br.com.liftrecord.tables;
 
 import br.com.liftrecord.student.valueobjects.BodyMetrics;
-import br.com.liftrecord.valueobjects.Contact;
 import br.com.liftrecord.student.Student;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
