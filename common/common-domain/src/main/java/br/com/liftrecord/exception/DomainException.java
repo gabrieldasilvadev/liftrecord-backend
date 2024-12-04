@@ -3,19 +3,25 @@ package br.com.liftrecord.exception;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
+import lombok.Getter;
 
-public abstract class DomainException extends RuntimeException implements Serializable {
+public class DomainException extends RuntimeException implements Serializable {
 
   @Serial
   private static final long serialVersionUID = -1854946370658874300L;
-  private final ErrorMessage message;
-  private final List<ErrorMessage> errors;
+  private ErrorMessage message;
+  @Getter
+  private List<ErrorMessage> errors;
 
 
-  protected DomainException(ErrorMessage message, List<ErrorMessage> errors) {
+  public DomainException(ErrorMessage message, List<ErrorMessage> errors) {
     super(message.getMessage());
     this.message = message;
     this.errors = errors;
+  }
+
+  public DomainException(String s) {
+    super(s);
   }
 
   public String getMessage() {
@@ -24,9 +30,5 @@ public abstract class DomainException extends RuntimeException implements Serial
 
   public String getDescription() {
     return message.getDescription();
-  }
-
-  public List<ErrorMessage> getErrors() {
-    return errors;
   }
 }
