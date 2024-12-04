@@ -9,6 +9,7 @@ import br.com.liftrecord.student.valueobjects.StudentId;
 import br.com.liftrecord.visitor.Visitable;
 import br.com.liftrecord.visitor.Visitor;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 import lombok.Builder;
@@ -90,6 +91,6 @@ public class Student extends DomainObject<StudentId> implements Visitable<Studen
   }
 
   public Map<LocalDate, BodyMetrics> getBodyMetrics() {
-    return this.bodyMetrics;
+    return Collections.unmodifiableMap(this.bodyMetrics);
   }
 }
