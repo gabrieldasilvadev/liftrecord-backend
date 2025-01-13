@@ -1,0 +1,262 @@
+{
+    "version": "2.0.0",
+    "runtimeConfiguration": {
+        "environment": "default",
+        "laxTestingModeEnabled": false,
+        "apiConnectivityCheck": true,
+        "logLevel": "error",
+        "logDestination": "stdout+platform",
+        "logMaxFileSize": 2147483648,
+        "requestHeaderNameRequestId": "x-scan-request-id",
+        "requestHeaderNameScenarioId": "x-scan-scenario-id",
+        "requestHeaderNameRequestType": "x-scan-request-type",
+        "requestFlowrate": 100,
+        "requestTimeout": 30,
+        "requestTlsInsecureSkipVerify": true,
+        "responseFollowRedirection": false,
+        "responseMaxBodySizeScan": 10485760,
+        "happyPathOnly": false,
+        "maxRequestRetryAttempts": 5,
+        "maxScanDuration": 1800,
+        "memoryLimit": 2147483648,
+        "memoryTimeSpan": 10,
+        "reportMaxRequestSizeHappyPath": 8092,
+        "reportMaxRequestSizeTest": 8092,
+        "reportIncludeRequestBody": true,
+        "reportIncludeResponseBody": true,
+        "reportMaxHttpResponseSizeHappyPath": 8092,
+        "reportMaxBodySizeHappyPath": 8092,
+        "reportMaxHttpResponseSizeTest": 8092,
+        "reportMaxBodySizeTest": 8092,
+        "reportIssuesOnly": false,
+        "reportMaxIssues": 1000,
+        "reportMaxSize": 20971520,
+        "reportGenerateCurlCommand": true
+    },
+    "customizations": {
+        "happyPaths": {
+            "retry": 1,
+            "responsePolicy": {
+                "httpStatusExpected": true,
+                "mustBeConformant": true
+            },
+            "httpStatusExpected": []
+        },
+        "tests": {
+            "responsePolicy": {
+                "httpStatusExpected": true,
+                "mustBeConformant": true
+            }
+        }
+    },
+    "operations": {
+        "delete-api-v1-accounts-account_id": {
+            "operationId": "delete-api-v1-accounts-account_id",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/delete-api-v1-accounts-account_id/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "delete-api-v1-accounts-account_id",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/api/v1/accounts/{account_id}",
+                        "method": "DELETE",
+                        "paths": [
+                            {
+                                "key": "account_id",
+                                "value": "otrgzsssngxdzozmlayrklotzodticoh"
+                            }
+                        ]
+                    }
+                },
+                "defaultResponse": "204",
+                "responses": {
+                    "204": {
+                        "expectations": {
+                            "httpStatus": 204
+                        }
+                    }
+                }
+            }
+        },
+        "post-api-v1-accounts": {
+            "operationId": "post-api-v1-accounts",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/post-api-v1-accounts/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "post-api-v1-accounts",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/api/v1/accounts",
+                        "method": "POST",
+                        "headers": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "requestBody": {
+                            "mode": "json",
+                            "json": {
+                                "biological_sex": "jyjvijyktikrsrklxpvdeekcwnagyekc",
+                                "birth_date": "aresmwagfhyvcvchhfvuhrhiykdmqaqc",
+                                "cellphone": "chtmemmirxdxsadjkggeehkflixgesgm",
+                                "email": "edapoijcnjinihkhtnutesmbioalufun",
+                                "first_name": "vombspbtzltylmeplbtzkfhfloqtcqky",
+                                "gender": "kszefeokqnlilwsjjysmpzkfisityeig",
+                                "last_name": "mlcizhxlppzncltqikhxsiwnogtvdoiz"
+                            }
+                        }
+                    }
+                },
+                "defaultResponse": "201",
+                "responses": {
+                    "201": {
+                        "expectations": {
+                            "httpStatus": 201
+                        }
+                    }
+                }
+            }
+        },
+        "post-api-v1-students": {
+            "operationId": "post-api-v1-students",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/post-api-v1-students/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "post-api-v1-students",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/api/v1/students",
+                        "method": "POST",
+                        "headers": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "requestBody": {
+                            "mode": "json",
+                            "json": {
+                                "academy_id": "picrguxnqevyixqkzvnpgpcdhrrhoyhe",
+                                "account_id": "tlkkzqaxnrusivkttjlecbtshoqnzwye"
+                            }
+                        }
+                    }
+                },
+                "defaultResponse": "201",
+                "responses": {
+                    "201": {
+                        "expectations": {
+                            "httpStatus": 201
+                        }
+                    }
+                }
+            }
+        },
+        "post-api-v1-students-student_id-body-metrics": {
+            "operationId": "post-api-v1-students-student_id-body-metrics",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/post-api-v1-students-student_id-body-metrics/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "post-api-v1-students-student_id-body-metrics",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/api/v1/students/{student_id}/body-metrics",
+                        "method": "POST",
+                        "paths": [
+                            {
+                                "key": "student_id",
+                                "value": "ycfcheubtppnsorfzgnjlrkkzibowxte"
+                            }
+                        ],
+                        "headers": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "requestBody": {
+                            "mode": "json",
+                            "json": {
+                                "abdomen_circumference": 6.058095491718029e+37,
+                                "arm_circumference": 2.10551447141956e+38,
+                                "basal_metabolic_rate": 3.141744912524212e+38,
+                                "bmi": 2.3788214625498e+38,
+                                "chest_circumference": 1.6141247265868088e+38,
+                                "height": 1.055743299550884e+38,
+                                "hips_circumference": 2.510725465380654e+38,
+                                "thigh_circumference": 1.8209863310094015e+38,
+                                "waist_circumference": 1.3647187890663485e+38,
+                                "weight": 2.67268282426548e+38
+                            }
+                        }
+                    }
+                },
+                "defaultResponse": "201",
+                "responses": {
+                    "201": {
+                        "expectations": {
+                            "httpStatus": 201
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "environments": {
+        "default": {
+            "variables": {
+                "host": {
+                    "from": "environment",
+                    "name": "SCAN42C_HOST",
+                    "required": false,
+                    "default": "http://localhost:7000"
+                }
+            }
+        }
+    }
+}

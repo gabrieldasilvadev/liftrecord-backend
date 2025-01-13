@@ -7,10 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-infraestructure</artifactId>
+    <artifactId>common-infrastructure</artifactId>
     <packaging>jar</packaging>
 
-    <name>common-infraestructure</name>
+    <name>common-infrastructure</name>
 
     <dependencies>
         <dependency>

@@ -12,7 +12,7 @@
         <module>common-domain</module>
         <module>common-application</module>
         <module>common-logging</module>
-        <module>common-infraestructure</module>
+        <module>common-infrastructure</module>
         <module>common-http-exception</module>
     </modules>
 </project>

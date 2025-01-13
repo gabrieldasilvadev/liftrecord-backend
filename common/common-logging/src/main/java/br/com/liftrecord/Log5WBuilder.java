@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 public class Log5WBuilder {
   public static class beLogging {
 
-    private Map<String, String> params = new LinkedHashMap<>();
+    private final Map<String, String> params = new LinkedHashMap<>();
 
     public beLogging(String method,
                      String logCode,
@@ -66,10 +66,10 @@ public class Log5WBuilder {
 
   public static class WhatHappen {
 
-    private String method;
-    private String logCode;
-    private String whatHappen;
-    private Map<String, String> infos = new LinkedHashMap<>();
+    private final String method;
+    private final String logCode;
+    private final String whatHappen;
+    private final Map<String, String> infos = new LinkedHashMap<>();
 
     public WhatHappen(String method, String logCode, String whatHappen) {
       this.method = method;
@@ -89,7 +89,7 @@ public class Log5WBuilder {
 
   public static class Method {
 
-    private String method;
+    private final String method;
 
     public Method(String method) {
       Assert.hasText(method, "method must not be blank");
@@ -104,8 +104,8 @@ public class Log5WBuilder {
 
   public static class LogCode {
 
-    private String method;
-    private String logCode;
+    private final String method;
+    private final String logCode;
 
     public LogCode(String method, String logCode) {
       Assert.hasText(method, "method must not be blank");

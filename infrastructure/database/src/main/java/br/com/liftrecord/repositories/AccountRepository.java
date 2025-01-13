@@ -17,5 +17,6 @@ public interface AccountRepository extends JpaRepository<AccountTable, String> {
   @QueryHints({
       @QueryHint(name = "jakarta.persistence.lock.timeout", value = "2000")
   })
+  @NotNull
   Optional<AccountTable> findById(@NotNull String value);
 }

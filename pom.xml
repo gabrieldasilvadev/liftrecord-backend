@@ -75,7 +75,7 @@
             </dependency>
             <dependency>
                 <groupId>br.com.liftrecord</groupId>
-                <artifactId>common-infraestructure</artifactId>
+                <artifactId>common-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

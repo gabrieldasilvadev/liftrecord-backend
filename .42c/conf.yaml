@@ -1,0 +1,3 @@
+apis:
+  infrastructure/http/src/main/resources/api.yml:
+    alias: "liftrecord"
